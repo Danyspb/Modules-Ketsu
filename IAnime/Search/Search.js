@@ -130,8 +130,7 @@ function Section(sectionName, separator) {
     this.separator = separator;
 }
 
-function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight,
-    heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
+function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
     this.insets = insets;
     this.visibleCellsWidthS = visibleCellsWidthS;
     this.visibleCellsWidthM = visibleCellsWidthM;
@@ -197,14 +196,16 @@ let emptyKeyValue = [new KeyValue('', '')];
 var donnees = [];
 var animes = document.querySelectorAll('td[align=\"center\"] table tbody');
 for (anime of animes) {
+    var ty = anime.querySelector('a').innerText;
+    if (ty.includes('Hentai')) {
+        continue;
+    }
     var title = anime.querySelector('titre6').innerText;
     var image = anime.querySelector('div').getAttribute('style');
     image = image.match(/http.*(jpg|png|jpeg)/gm)[0];
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
     var link = anime.querySelector('a').href;
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-    var ty = anime.querySelector('a').textContent.trim();
-
     if (ty.includes('Film')) {
         type = 'Film';
     }
@@ -217,13 +218,11 @@ for (anime of animes) {
     if (ty.includes('Série')) {
         type = 'Serie';
     }
-    var langue = anime.querySelectorAll('headline2')[1].textContent.trim();
-    var finalData = new Data(image, title, '', langue, type, '', '', false, link);
+    var langue = anime.querySelectorAll('headline2')[1].innerText;
+    var finalData = new Data(image, title, '', langue, type, 'unknown', 'unknown', false, link);
     donnees.push(finalData);
 }
-output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant,
-    Paging.none, new Section('', true), null, donnees));
-let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',
-    emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(true, false, ''), output);
+output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.none, new Section('', true), null, donnees));
+let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(searchPageObject);
 savedData.innerHTML = finalJson;
