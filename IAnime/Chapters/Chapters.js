@@ -69,11 +69,16 @@ function Text(text) {
     this.text = text;
 }
 var output = [];
+var extraInfo = [new KeyValue('count', '1')];
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
-var emptyKeyValue = [new KeyValue('', '')];
+var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url), new KeyValue('Content-Type', 'application/x-www-form-urlencoded')];
+var urlencoded = new URLSearchParams();
+urlencoded.append('submit.x', '0');
+urlencoded.append('submit.y', '0');
 var divservers = document.querySelectorAll('#content > div > div.post-wrapper > center:nth-child(1) > div');
-for (server of divservers) {
+for (var x = 1; x < divservers.length; x++) {
+    var server = divservers[x];
     if (server.className == 'spoiler' || server.className == 'spoil') {
         continue;
     }
@@ -86,10 +91,14 @@ for (server of divservers) {
         var doc = parser.parseFromString(html, 'text/html');
         var link = doc.querySelector('iframe').src;
     }
-    
-    output.push(new NeedsResolver(nameServer, new ModuleRequest(link, 'get', emptyKeyValue, null)));
+    if (x == 1) {
+        var nextRequest = link
+    } else {
+        extraInfo.push(new KeyValue(`${x}`, `${link}`));
+    }
+    console.log(link);
 }
-let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
-var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
+let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
+var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'post', emptyKeyValue, urlencoded.toString()), emptyExtra, new JavascriptConfig(true, false, ''), new Output(new Videos(output, null), null, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;
