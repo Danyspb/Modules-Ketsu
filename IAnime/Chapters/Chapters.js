@@ -79,7 +79,7 @@ urlencoded.append('submit.y', '0');
 var divservers = document.querySelectorAll('#content > div > div.post-wrapper > center:nth-child(1) > div');
 for (var x = 1; x < divservers.length; x++) {
     var server = divservers[x];
-    if (server.className == 'spoiler' || server.className == 'spoil') {
+    if (server.className =! undefined) {
         continue;
     }
     var nameServer = server.querySelectorAll('titre6')[1].textContent.split('Host : ').pop().toUpperCase().replace('VIEWSB', 'WATCHSB').replaceAll('\\n', '');
