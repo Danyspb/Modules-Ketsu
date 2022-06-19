@@ -11,7 +11,7 @@
       "moduleType": "Video",
       "baseURL": "https://spacemov.site/",
       "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/spacemove",
-      "UpdateSite": "https://raw.githubusercontent.com/Danyspb/SpaceMov/master/moduleTemplate.json",
+      "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/spacemove/moduleTemplate.json",
       "preferedServer": "",
       "preferedDownloadServer": "",
       "blackListed": [
