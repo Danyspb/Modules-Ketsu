@@ -210,7 +210,7 @@ for (c of check){
     var donnes = new Data(image, title,'', inf, 'Drama', '', '', false, link);
     meilleur.push(donnes);
 }
-output.push(new Output(CellDesings.normal2, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Derniers Episodes Ajoutés', true), null, meilleur));
+output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Derniers Episodes Ajoutés', true), null, meilleur));
 let MainPageObject = new MainPage(new ModuleRequest('https://mykdrama.co/genres/action/', 'get', emptyKeyValue, null),
 new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
