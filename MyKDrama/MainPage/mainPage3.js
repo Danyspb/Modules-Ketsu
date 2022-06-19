@@ -211,7 +211,7 @@ if(ch.querySelector('.bsx .limit .bt > span').textContent.includes('Ongoing')){
  }else{
      var inf = 'Complete';
  }
-var donnes = new Data(image, title, '', inf, 'Drama', '', '', false,link);
+var donnes = new Data(image, title, '', inf, '', '', '', false,link);
 voir.push(donnes);
 }
 output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading,

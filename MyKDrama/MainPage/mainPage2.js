@@ -207,7 +207,7 @@ for (c of check){
         var inf = 'Complete';
     }
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    var donnes = new Data(image, title,'', inf, 'Drama', '', '', false, link);
+    var donnes = new Data(image, title,'', inf, '', '', '', false, link);
     meilleur.push(donnes);
 }
 output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Derniers Episodes Ajoutés', true), null, meilleur));
