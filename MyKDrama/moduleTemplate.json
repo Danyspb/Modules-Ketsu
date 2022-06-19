@@ -11,7 +11,7 @@
     "moduleType": "Video",
     "baseURL": "https://mykdrama.co/",
     "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/MyKDrama",
-    "UpdateSite": "https://github.com/Danyspb/MyKDrama/blob/master/moduleTemplate.json",
+    "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/spacemove/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [

@@ -11,7 +11,7 @@
     "moduleType": "Video",
     "baseURL": "https://anime-flix.net/",
     "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/Anime-Flex",
-    "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Anime-Flex/main/moduleTemplate.json",
+    "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Anime-Flex/moduleTemplate.json",
     "preferedServer": "VOE",
     "preferedDownloadServer": "VOE",
     "blackListed": [

@@ -11,7 +11,7 @@
     "moduleType": "Image",
     "baseURL": "https://mangas-origines.fr/",
     "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/Mangas-Origines",
-    "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Origines-Mangas/master/moduleTemplate.json",
+    "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Mangas-Origines/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
