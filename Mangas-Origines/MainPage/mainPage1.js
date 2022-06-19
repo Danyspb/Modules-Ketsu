@@ -194,7 +194,7 @@
  let emptyKeyValue = [new KeyValue('', '')];
  const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
  var lien = new ModuleRequest('https://discord.gg/BN8ZbtKp', 'get', emptyKeyValue, null);
- var contact = new Data(rien, 'En cas de problème du module veuillez le signaler au niveau du serveur Discord de Ketsu vous pouvez y accéder en cliquant sur ce texte Allez bonne lecture 😉', '', '', '', '', '', false, lien, false);
+ var contact = new Data(rien, 'En cas de problème du module veuillez le signaler au niveau du serveur Discord de Ketsu.\\nVous pouvez y accéder en cliquant sur ce texte.\\nAllez bonne lecture 😉.\\nDanyspb', '', '', '', '', '', false, lien, false);
  var sortie = [];
  var slid = document.querySelectorAll('.manga-slider.style-2 .slider__container .slider__item ');
  for (ok of slid) {
