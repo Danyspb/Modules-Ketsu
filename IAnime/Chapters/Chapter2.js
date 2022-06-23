@@ -77,7 +77,7 @@ var nextRequest = getValueFromKey(extraInfo, nextCount);
 if (actualCount == 0) {
     output = new Videos([], []);
 }
-var fixedLink = document.querySelector('iframe').src.replace('https://streamtape.com/', 'https://streamta.pe/').replace('https://viewsb.com', 'https://watchsb.com');
+var fixedLink = document.querySelector('iframe').src.replace('https://streamtape.com/', 'https://streamta.pe/').replace('https://viewsb.com', 'https://watchsb.com').replace('?ov-ignore=true', '');
 if (!fixedLink.includes('https')) {
     fixedLink = 'https://' + fixedLink;
 }
