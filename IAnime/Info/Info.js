@@ -103,7 +103,7 @@
                 var chapitre = new Chapter(epi, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
                 filt.push(chapitre);
                 episodes = filt.filter(function (bon) {
-                    if (bon.chapName.includes('Episode') || (bon.chapName.includes('Oav')) || (bon.chapName.includes('Special'))) {
+                    if (bon.chapName.includes('Episode') || (bon.chapName.includes('Oav ')) || (bon.chapName.includes('Special'))) {
                         return episodes;
                     }
                 })
@@ -144,7 +144,7 @@
                 var chapitre = new Chapter(epi, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
                 filt.push(chapitre);
                 episodes = filt.filter(function (bon) {
-                    if (bon.chapName.includes('Episode') || (bon.chapName.includes('Oav')) || (bon.chapName.includes('Special')) ) {
+                    if (bon.chapName.includes('Episode') || (bon.chapName.includes('Oav ')) || (bon.chapName.includes('Special')) ) {
                         return episodes;
                     }
                 })
