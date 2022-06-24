@@ -91,7 +91,7 @@
             var imf = document.querySelector('.post-wrapper center div').style.backgroundImage.substr('5');
             var image = imf.split(')')[0].trim().replace('\"', '');
             image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-            desc = test[1].querySelector('font').textContent.replaceAll('\\n', '');
+            desc = 'Drama Japonais ou autres';
             genres = ['Dramas', 'Japonais'];
             date = 'Unknown';
             type = 'Vostfr';
@@ -103,7 +103,7 @@
                 var chapitre = new Chapter(epi, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
                 filt.push(chapitre);
                 episodes = filt.filter(function (bon) {
-                    if (bon.chapName.includes('Episode') || (bon.chapName.includes('Oav ')) || (bon.chapName.includes('Special'))) {
+                    if (bon.chapName.includes('Episode') || (bon.chapName.includes('Oav ')) || (bon.chapName.includes('Special '))) {
                         return episodes;
                     }
                 })
@@ -144,7 +144,7 @@
                 var chapitre = new Chapter(epi, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
                 filt.push(chapitre);
                 episodes = filt.filter(function (bon) {
-                    if (bon.chapName.includes('Episode') || (bon.chapName.includes('Oav ')) || (bon.chapName.includes('Special')) ) {
+                    if (bon.chapName.includes('Episode') || (bon.chapName.includes('Oav ')) || (bon.chapName.includes('Special ')) ) {
                         return episodes;
                     }
                 })
