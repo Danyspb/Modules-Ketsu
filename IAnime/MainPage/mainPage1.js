@@ -237,7 +237,7 @@
 
     output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading,new Section('', true), layout, donnes));
     output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered, new Section('', true), layout1, [contact]));
-    let MainPageObject = new MainPage(new ModuleRequest('https://www.ianimes.org/films.php?liste=b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
+    let MainPageObject = new MainPage(new ModuleRequest('https://www.ianimes.org/listing2.php?affichage=Qxc108FGkpodhjccjv&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
     
