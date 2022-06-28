@@ -202,13 +202,10 @@ for (ch of check) {
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
     var title = ch.querySelector('.poster > img').alt;
     var annee = ch.querySelector('span').textContent;
-    var donnes = new Data(image, title, annee, 'En Vedette', '', '', '', false, link);
+    var donnes = new Data(image, title, '', annee, '', '', '', false, link);
     fil.push(donnes);
 }
-output.push(new Output(CellDesings.normal2, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging
-    .leading, new Section('Films', true), null, fil));
-let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue,
-    null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false,
-        ''), output);
+output.push(new Output(CellDesings.normal7, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Films', true), null, fil));
+let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false,''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
