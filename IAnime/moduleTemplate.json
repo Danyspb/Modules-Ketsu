@@ -13,7 +13,7 @@
         "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/IAnime",
         "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/IAnime/moduleTemplate.json",
         "preferedServer": "DOODSTREAM",
-        "preferedDownloadServer": "VUPLOAD",
+        "preferedDownloadServer": "DOODSTREAM",
         "blackListed": [
             ""
         ]
