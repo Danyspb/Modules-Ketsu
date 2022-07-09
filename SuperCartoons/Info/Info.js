@@ -93,13 +93,10 @@ function Info(request, extra, javascriptConfig, output) {
    var title = document.querySelector('.cartoon-title').textContent.trim();
    var image = 'https://i.postimg.cc/76pDGT5K/car.png';
    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-   var car = document.querySelectorAll('.cartoons-list.row article');
-   for (c of car) {
-       var link = url + c.querySelector('a').href;
-       var epi = c.querySelector('h3').textContent.trim();
-       var chapitre = new Chapter(epi, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
-       episodes.push(chapitre);
-   }
+   var link = parsedJson.request.url;
+   var chapitre = new Chapter(title, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
+   episodes.push(chapitre);
+
    let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',
        emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title,
        parsedJson.request, desc, genres, caract, studio, type, 'Eps: ' + episodes.length, episodes));
