@@ -79,7 +79,7 @@
     var anne = '';
     var dure = '';
     var genres = [];
-    var desc = document.querySelector('.f-desc').textContent.split(' – ')[1];
+    var desc = document.querySelector('.f-desc').textContent;
     var title = document.querySelector('.mvic-desc h1').textContent;
     var image = document.querySelector('.thumb.mvic-thumb').style.backgroundImage.match(/(https.+.jpg)/gm)[0];
     image = new ModuleRequest(image,'get',emptyKeyValue,null);

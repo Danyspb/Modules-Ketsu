@@ -224,7 +224,7 @@
         var title = n.querySelector('.slide-caption h2').textContent.trim();
         var link = n.querySelector('a').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var desc = n.querySelector('.slide-caption p:nth-child(3)').textContent.split(' – ')[1];
+        var desc = n.querySelector('.slide-caption p:nth-child(3)').textContent;
         var image = n.style.backgroundImage.match(/(https.+.jpg)/gm)[0];
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         var sva = new Data(image, '', '', title, desc, '', '', false, link);
@@ -252,7 +252,7 @@
         var link = m.querySelector('a').href;
         var  epis = m.querySelector('.mli-eps').textContent.trim();
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var title = m.querySelector('.mli-info h2').textContent.split(' – ')[0];
+        var title = m.querySelector('.mli-info h2').textContent.trim();
         var s = new Data(image, title, '',qualy,epis,'','',false,link);
         donnes2.push(s);
     }
