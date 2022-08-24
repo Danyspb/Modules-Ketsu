@@ -211,7 +211,7 @@ for (i = 0; i < check.length; i++) {
         }
         var link = don.querySelector('tr:nth-child(2) td center div a ').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        miam.push(new Data(image, '',type, title, 'Top 30', '', '', false, link));
+        miam.push(new Data(image, title,'', type, '🤩', '', '', false, link));
     }
     }
 
@@ -222,7 +222,7 @@ for (i = 0; i < check.length; i++) {
                 return unique;
             },[]);
 
-output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Le top 30 Animes :', true), null, result));
+output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,new Section('Le top 30 Animes :', true), null, result));
 let MainPageObject = new MainPage(new ModuleRequest('https://www.ianimes.org/index.php', 'get', emptyKeyValue,null),
 new Extra([new Commands('', emptyKeyValue)], emptyKeyValue),
 new JavascriptConfig(true,false, ''), output);
