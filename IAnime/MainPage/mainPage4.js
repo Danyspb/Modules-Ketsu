@@ -207,14 +207,14 @@ for (i = 0; i < check.length; i++) {
         if(don.querySelector('tr:nth-child(2) td center div img').src.includes('vostfr')){
             type = 'Vostfr';
         }else{
-            type = 'Français';
+            type = 'VF';
         }
         var link = don.querySelector('tr:nth-child(2) td center div a ').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
         miam.push(new Data(image, '',type, title, 'Top 30', '', '', false, link));
+        }
     }
-    }
-
+    
         var result = miam.reduce((unique, o) => {
             if(!unique.some(obj => obj.field1 === o.field1 && obj.description === o.description)) {
                         unique.push(o);
