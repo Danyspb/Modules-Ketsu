@@ -12,7 +12,7 @@
         "baseURL": "https://www.ianimes.org/index.php",
         "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/IAnime",
         "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/IAnime/moduleTemplate.json",
-        "preferedServer": "DOODSTREAM",
+        "preferedServer": "WATCHSB",
         "preferedDownloadServer": "DOODSTREAM",
         "blackListed": [
             ""
