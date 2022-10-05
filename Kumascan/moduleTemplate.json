@@ -10,8 +10,8 @@
     "moduleLenguage": "ENG",
     "moduleType": "image",
     "baseURL": "https://kumascans.com/",
-    "moduleDeveloperSite": "",
-    "UpdateSite": "",
+    "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/Kumascan",
+    "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Kumascan/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
