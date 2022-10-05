@@ -6,7 +6,7 @@
     "developer": "Dannyspb4ever",
     "moduleID": "SDFSDFDSFSDFSDF",
     "moduleImage": "http://kumascans.com/wp-content/uploads/2021/01/web-rawkuma-copy.png",
-    "moduleVersion": 1.1111,
+    "moduleVersion": 1.111,
     "moduleLenguage": "ENG",
     "moduleType": "image",
     "baseURL": "https://kumascans.com/",
@@ -41,7 +41,7 @@
   "mainPage": [
    {
       "request": {
-        "url": "",
+        "url": "https://kumascans.com/",
         "method": "get",
         "headers": [
           {
