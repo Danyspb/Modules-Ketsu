@@ -1955,15 +1955,15 @@ body.text-ui-light .tab-wrap .c-nav-tabs ul.c-tabs-content li:hover {
       const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
       var lien = new ModuleRequest('https://discord.gg/BN8ZbtKp', 'get', emptyKeyValue, null);
       var contact = new Data(rien,
-          'En cas de problème du module veuillez le signaler au niveau du serveur Discord de Ketsu.\nVous pouvez y accéder en cliquant sur ce texte.\nAllez bonne lecture 😉.\nDanyspb',
-          '', '', '', '', '', false, lien, false);
+      'En cas de problème du module veuillez le signaler au niveau du serveur Discord de Ketsu.\\nVous pouvez y accéder en cliquant sur ce texte.\\nAllez bonne lecture 😉.\\nDanyspb',
+      '', '', '', '', '', false, lien, false);
       var sortie = [];
       var slid = document.querySelectorAll('.manga-slider.style-2 .slider__container .slider__item ');
       for (ok of slid) {
           var types = ok.querySelector('.slider__thumb_item >span').textContent;
           var link = ok.querySelector('.slider__thumb_item > a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = ok.querySelector('img').src;
+          var image = ok.querySelector('.slider__thumb_item a img').src;
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var title = ok.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
           var hii = new Data(image, '', '', title, types, '', '', false, link);
@@ -2022,10 +2022,7 @@ body.text-ui-light .tab-wrap .c-nav-tabs ul.c-tabs-content li:hover {
       let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),new Size(0, 0), 0, 0);
       output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sortie));
       output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered,new Section('', true), layout1, [contact]));
-      output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,new Section('Nouveauté :', true), null, nouv));
-      output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,new Section('Top du jour :', true), null, sortie3));
-      output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,new Section('Exclusivités Origines :', true), null, sortie1));
-      output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Dernière mise a jour :', true), null, sortie2));
+      
       let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
       var finalJson = JSON.stringify(MainPageObject);
       savedData.innerHTML = finalJson;
