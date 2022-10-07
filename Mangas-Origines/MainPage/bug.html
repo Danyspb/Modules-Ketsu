@@ -1970,11 +1970,11 @@ body.text-ui-light .tab-wrap .c-nav-tabs ul.c-tabs-content li:hover {
           sortie.push(hii);
       }
       var nouv = [];
-      var reg = document.querySelectorAll('.popular-slider.style-1 .slider__item');
+      var reg = document.querySelectorAll('.popular-slider.style-3 .slider__item');
       for (r of reg) {
-          var link = r.querySelector('.slider__thumb_item > a').href;
+          var link = r.querySelector('a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = r.querySelector('img').dataset.src.replace('-125x180', '');
+          var image = r.querySelector('a img').src;
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var title = r.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
           var hooo = new Data(image, title, '', '', '', '', '', false, link);
@@ -2022,6 +2022,7 @@ body.text-ui-light .tab-wrap .c-nav-tabs ul.c-tabs-content li:hover {
       let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),new Size(0, 0), 0, 0);
       output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sortie));
       output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered,new Section('', true), layout1, [contact]));
+      output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,new Section('Nouveauté :', true), null, nouv));
       
       let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
       var finalJson = JSON.stringify(MainPageObject);
