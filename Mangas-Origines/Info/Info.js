@@ -121,7 +121,7 @@
     var content = getFile(window.location.href + 'ajax/chapters');
     var parser = new DOMParser();
     var doc = parser.parseFromString(content, 'text/html');
-    var informa = doc.querySelectorAll('ul li');
+    var informa = doc.querySelectorAll('.main.version-chap.no-volumn li');
     for (cr of informa) {
         var link = cr.querySelector('a').href;
         var mo = cr.querySelector('a').textContent.trim();
