@@ -1983,10 +1983,10 @@ body.text-ui-light .tab-wrap .c-nav-tabs ul.c-tabs-content li:hover {
       var sortie1 = [];
       var check = document.querySelectorAll('.c-page__content .grid9 > div');
       for (c of check) {
-          var title = c.querySelector('.item-thumb.c-image-hover > a').title;
-          var link = c.querySelector('.item-thumb.c-image-hover > a').href;
+          var title = c.querySelector('.item-thumb.c-image-hover a').title;
+          var link = c.querySelector('.item-thumb.c-image-hover a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = c.querySelector('img').dataset.src;
+          var image = c.querySelector('.item-thumb.c-image-hover a img').src;
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var types = c.querySelector('.item-thumb.c-image-hover > a > span').textContent;
           var hum = new Data(image, '', types, title, '⭐', '', '', false, link);
@@ -2014,7 +2014,7 @@ body.text-ui-light .tab-wrap .c-nav-tabs ul.c-tabs-content li:hover {
           var title = av.querySelector('.popular-img.widget-thumbnail.c-image-hover > a').title;
           var image = av.querySelector('img').dataset.src;
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-          var chapi = av.querySelector('.popular-content .list-chapter > div').textContent.replace('', '');
+          var chapi = av.querySelector('.popular-content .list-chapter > div').textContent.replace('', '').trim();
           var hoho = new Data(image, '', chapi, '', title, '', '', false, link);
           sortie3.push(hoho);
       }
@@ -2023,6 +2023,8 @@ body.text-ui-light .tab-wrap .c-nav-tabs ul.c-tabs-content li:hover {
       output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sortie));
       output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered,new Section('', true), layout1, [contact]));
       output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,new Section('Nouveauté :', true), null, nouv));
+      output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,new Section('Top du de la semaine :', true), null, sortie3));
+      output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,new Section('Tendances :', true), null, sortie1));
       
       let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
       var finalJson = JSON.stringify(MainPageObject);
