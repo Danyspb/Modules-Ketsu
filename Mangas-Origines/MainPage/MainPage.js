@@ -201,73 +201,90 @@
   '', '', '', '', '', false, lien, false);
   var sortie = [];
   var slid = document.querySelectorAll('.manga-slider.style-2 .slider__container .slider__item ');
-      for (ok of slid) {
-          var types = ok.querySelector('.slider__thumb_item >span').textContent;
-          var link = ok.querySelector('.slider__thumb_item > a').href;
-          link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = ok.querySelector('.slider__thumb_item a img').dataset.lazySrc;
-          image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-          var title = ok.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
-          var hii = new Data(image, '', '', title, types, '', '', false, link);
-          sortie.push(hii);
+  for (ok of slid) {
+      var types = ok.querySelector('.slider__thumb_item >span').textContent;
+      var link = ok.querySelector('.slider__thumb_item > a').href;
+      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+      var image = ok.querySelector('.slider__thumb_item a img').dataset.lazySrc;
+      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+      var title = ok.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
+      var hii = new Data(image, '', '', title, types, '', '', false, link);
+      sortie.push(hii);
+  }
+  var nouv = [];
+  var reg = document.querySelectorAll('.popular-slider.style-3 .slider__item');
+  for (r of reg) {
+      var link = r.querySelector('a').href;
+      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+      try {
+        var image = r.querySelector('.slider__thumb_item.c-image-hover a img').src.replace('-125x180', '');
+      } catch (error) {
+        var image = r.querySelector('a img').dataset.lazySrc.replace('-125x180', '');
       }
-      var nouv = [];
-      var reg = document.querySelectorAll('.popular-slider.style-3 .slider__item');
-      for (r of reg) {
-          var link = r.querySelector('a').href;
-          link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = r.querySelector('a img').dataset.lazySrc.replace('-125x180','');
-          image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-          var title = r.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
-          var hooo = new Data(image, title, '', '', '', '', '', false, link);
-          nouv.push(hooo);
+      
+      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+      var title = r.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
+      var hooo = new Data(image, title, '', '', '', '', '', false, link);
+      nouv.push(hooo);
+  }
+  var sortie1 = [];
+  var check = document.querySelectorAll('.c-page__content .grid9 > div');
+  for (c of check) {
+      var title = c.querySelector('.item-thumb.c-image-hover a').title;
+      var link = c.querySelector('.item-thumb.c-image-hover a').href;
+      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+      try {
+        var image = c.querySelector('.item-thumb.c-image-hover img').src.replace('-193x278', '');
+      } catch (error) {
+        var image = c.querySelector('.item-thumb.c-image-hover a img').dataset.lazySrc.replace('-193x278', '');
       }
-      var sortie1 = [];
-      var check = document.querySelectorAll('.c-page__content .grid9 > div');
-      for (c of check) {
-          var title = c.querySelector('.item-thumb.c-image-hover a').title;
-          var link = c.querySelector('.item-thumb.c-image-hover a').href;
-          link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = c.querySelector('.item-thumb.c-image-hover a img').dataset.lazySrc.replace('-193x278', '');
-          image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-          var types = c.querySelector('.item-thumb.c-image-hover > a > span').textContent;
-          var hum = new Data(image, '', types, title, '⭐', '', '', false, link);
-          sortie1.push(hum);
+      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+      var types = c.querySelector('.item-thumb.c-image-hover > a > span').textContent;
+      var hum = new Data(image, '', types, title, '⭐', '', '', false, link);
+      sortie1.push(hum);
+  }
+  var sortie2 = [];
+  var recup = document.querySelectorAll(
+      '.main-col.col-md-8.col-sm-8 .main-col-inner.c-page #loop-content > div .col-12.col-md-6');
+  for (re of recup) {
+      var title = re.querySelector('.item-summary h3 a').textContent.trim();
+      var link = re.querySelector('.item-summary h3 a').href;
+      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+      try {
+        var image = re.querySelector('.item-thumb.hover-details.c-image-hover img').src.replace('-110x150', '');
+      } catch (error) {
+        var image = re.querySelector('.item-thumb.hover-details.c-image-hover img').dataset.lazySrc.replace('-110x150', '');
+      } 
+      var type = re.querySelector('span').textContent.trim();
+      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+      var haha = new Data(image, title, '', type, '', '', '', false, link);
+      sortie2.push(haha);
+  }
+  var sortie3 = [];
+  var avoir = document.querySelectorAll(
+      '.sidebar-col.col-md-4.col-sm-4 .c-widget-content.style-1 .widget-content > div');
+  for (av of avoir) {
+      var link = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a').href;
+      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+      var title = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a').title;
+      try {
+        var image = av.querySelector('a img').src.replace('-75x106', '');
+      } catch (error) {
+        var image = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a img').dataset.lazySrc.replace('-75x106', '');
       }
-      var sortie2 = [];
-      var recup = document.querySelectorAll(
-          '.main-col.col-md-8.col-sm-8 .main-col-inner.c-page #loop-content > div .col-12.col-md-6');
-      for (re of recup) {
-          var title = re.querySelector('.item-summary h3 a').textContent.trim();
-          var link = re.querySelector('.item-summary h3 a').href;
-          link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = re.querySelector('.item-thumb.hover-details.c-image-hover img').dataset.lazySrc.replace('-110x150', '');
-          var type = re.querySelector('span').textContent.trim();
-          image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-          var haha = new Data(image, title, '', type, '', '', '', false, link);
-          sortie2.push(haha);
-      }
-      var sortie3 = [];
-      var avoir = document.querySelectorAll(
-          '.sidebar-col.col-md-4.col-sm-4 .c-widget-content.style-1 .widget-content > div');
-      for (av of avoir) {
-          var link = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a').href;
-          link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var title = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a').title;
-          var image = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a img').dataset.lazySrc.replace('-75x106', '');
-          image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-          var chapi = av.querySelector('.popular-content .list-chapter > div').textContent.replace('', '').trim();
-          var hoho = new Data(image, '', chapi, '', title, '', '', false, link);
-          sortie3.push(hoho);
-      }
-      let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),new Size(0, 0), 0, 0);
-      let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),new Size(0, 0), 0, 0);
-      output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sortie));
-      output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered,new Section('', true), layout1, [contact]));
-      output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,new Section('Nouveauté :', true), null, nouv));
-      output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,new Section('Top de la semaine :', true), null, sortie3));
-      output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,new Section('Tendances :', true), null, sortie1));
-      output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Dernière mise a jour :', true), null, sortie2));
-      let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
-      var finalJson = JSON.stringify(MainPageObject);
-      savedData.innerHTML = finalJson;
+      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+      var chapi = av.querySelector('.popular-content .list-chapter > div').textContent.replace('', '').trim();
+      var hoho = new Data(image, '', chapi, '', title, '', '', false, link);
+      sortie3.push(hoho);
+  }
+  let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),new Size(0, 0), 0, 0);
+  let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),new Size(0, 0), 0, 0);
+  output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sortie));
+  output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered,new Section('', true), layout1, [contact]));
+  output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,new Section('Nouveauté :', true), null, nouv));
+  output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,new Section('Top de la semaine :', true), null, sortie3));
+  output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,new Section('Tendances :', true), null, sortie1));
+  output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Dernière mise a jour :', true), null, sortie2));
+  let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
+  var finalJson = JSON.stringify(MainPageObject);
+  savedData.innerHTML = finalJson;
