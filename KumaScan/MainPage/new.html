@@ -2942,13 +2942,18 @@
     var dons = document.querySelectorAll('.slidtop .slide-item.full');
     for(d of dons){
       var image = d.querySelector('.slide-content a img').src;
+      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
       var link = d.querySelector('.slide-content a').href;
+      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+      var title = d.querySelector('.ellipsis').textContent.trim();
       var type = d.querySelector('.info-left .release-year').textContent;
-      var  genre = Array.from(d.querySelectorAll('.extra-category a')).map(g=>g.textContent.trim());
+      var genre = Array.from(d.querySelectorAll('.extra-category a')).map(g=>g.textContent.trim());
       var status = d.querySelector('.cast .director').textContent.trim();
+      var donnes = new Data(image, genre,'', title, status, '', '', false, link);
+      sortie.push(donnes);
     }
 
-
+    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', true), null, sortie));
     let MainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
 
     var finalJson = JSON.stringify(MainPageObject);
