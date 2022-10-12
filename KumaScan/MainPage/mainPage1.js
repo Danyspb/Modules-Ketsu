@@ -225,8 +225,8 @@ const DefaultLayouts = {
      var title = d.querySelector('.ellipsis').textContent.trim();
      var type = d.querySelector('.info-left .release-year').textContent;
      var genre = Array.from(d.querySelectorAll('.extra-category a')).map(g=>g.textContent.trim());
-     var status = d.querySelector('.cast .director').textContent.trim();
-     var donnes = new Data(image, genre,'', title, status, '', '', false, link);
+     var stat = d.querySelector('.cast .director').textContent.trim();
+     var donnes = new Data(image, genre,'', title, stat, '', '', false, link);
      sortie.push(donnes);
    }
 
