@@ -2761,7 +2761,7 @@
       }
       var crap = document.querySelectorAll('.serieslist.pop.wpop.wpop-weekly ul li ');
       for (c of crap) {
-          var image = c.querySelector('a img').src.replace('?resize=65,85','');
+          var image = c.querySelector('a img').src;
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var link = c.querySelector('.imgseries a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
