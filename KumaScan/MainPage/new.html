@@ -2963,8 +2963,7 @@
      var image = m.querySelector('.limit img').src;
      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
      var chap = m.querySelector('.bigor .epxs').textContent.trim();
-     var  date = m.querySelector('.bigor .epxdate').textContent.trim();
-     var info = new Data(image, date ,title, chap, types, '', '', false, link);
+     var info = new Data(image, chap ,title, '', types, '', '', false, link);
      sortie1.push(info);
     }
 
