@@ -2939,6 +2939,7 @@
     let emptyKeyValue = [new KeyValue('','')];
     var sortie = [];
     var sortie1 = [];
+    var sortie2 = [];
 
     var dons = document.querySelectorAll('.slidtop .slide-item.full');
     for(d of dons){
@@ -2967,8 +2968,21 @@
      sortie1.push(info);
     }
 
+    var crap = document.querySelectorAll('.serieslist.pop.wpop.wpop-weekly ul li ');
+    for(c of crap){
+      var image = c.querySelector('.imgseries img').src;
+      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+      var link = c.querySelector('.imgseries a').href;
+      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+      var title = c.querySelector('.leftseries h2').textContent;
+      var hum = new Data(image, '', '', title, '⭐', '', '', false, link);
+      sortie2.push(hum);
+    }
+
+    
     output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', true), null, sortie));
-    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Last Update :', true), null, sortie1));
+    output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,new Section('Top Weekly :', true), null, sortie2));
+    output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Last Update :', true), null, sortie1));
     let MainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
 
     var finalJson = JSON.stringify(MainPageObject);
