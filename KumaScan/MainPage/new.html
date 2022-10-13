@@ -2938,6 +2938,7 @@
     let output = [];
     let emptyKeyValue = [new KeyValue('','')];
     var sortie = [];
+    var sortie1 = [];
 
     var dons = document.querySelectorAll('.slidtop .slide-item.full');
     for(d of dons){
@@ -2953,7 +2954,22 @@
       sortie.push(donnes);
     }
 
+    var mem = document.querySelectorAll('.listupd .bs.styletere .bsx');
+    for (m of mem){
+     var types = m.querySelector('.limit span').textContent;
+     var title = m.querySelector('a').title;
+     var link = m.querySelector('a').href;
+     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+     var image = m.querySelector('.limit img').src;
+     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+     var chap = m.querySelector('.bigor .epxs').textContent.trim();
+     var  date = m.querySelector('.bigor .epxdate').textContent.trim();
+     var info = new Data(image, date ,title, chap, types, '', '', false, link);
+     sortie1.push(info);
+    }
+
     output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', true), null, sortie));
+    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Last Update :', true), null, sortie1));
     let MainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
 
     var finalJson = JSON.stringify(MainPageObject);
