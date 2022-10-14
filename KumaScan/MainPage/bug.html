@@ -2759,24 +2759,20 @@
           var info = new Data(image, chap, title, '', types, '', '', false, link);
           sortie1.push(info);
       }
-      var crap = document.querySelectorAll('.serieslist.pop.wpop.wpop-weekly ul li ');
+      var crap = document.querySelectorAll('.bixbox.hothome .listupd .bsx');
       for (c of crap) {
-          var image = c.querySelector('a img').src;
+          var image = c.querySelector('.limit img').src;
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-          var link = c.querySelector('.imgseries a').href;
+          var link = c.querySelector('a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var title = c.querySelector('.leftseries h2').textContent;
+          var title = c.querySelector('a').title;
           var hum = new Data(image, '', '', title, '⭐', '', '', false, link);
           sortie2.push(hum);
       }
-      output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,
-          new Section('', true), null, sortie));
-      output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,
-          new Section('Top Weekly :', true), null, sortie2));
-      output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging
-          .leading, new Section('Last Update :', true), null, sortie1));
-      let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('',
-          emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
+      output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,new Section('', true), null, sortie));
+      output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,new Section('Popular Today :', true), null, sortie2));
+      output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Last Update :', true), null, sortie1));
+      let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('',emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
       var finalJson = JSON.stringify(MainPageObject);
       savedData.innerHTML = finalJson;
   </script>
