@@ -78,6 +78,6 @@ if (output.length == 0) {
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
 var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra,
-  new JavascriptConfig(false, false, ''), new Output(null, output, null));
+new JavascriptConfig(false, false, ''), new Output(null, output, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;
