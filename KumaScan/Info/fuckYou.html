@@ -1450,15 +1450,8 @@
     var status = '';
     var genres = [];
     var don = document.querySelectorAll('.tsinfo .imptdt');
-    for (let a = 0; a < don.length; a++) {
-        if(don[a].textContent.includes('Type')){
-            var ty = don[a].textContent.replace(/\s/g,'');
-            type = ty.replace('Type', '');
-        }else{
-            var sta =  don[a].textContent.replace(/\s/g,'');
-            status = sta.replace('Status','');
-        }
-    }
+    type = document.querySelector('div.tsinfo > div:nth-child(2) a').textContent;
+    status = document.querySelector('div.tsinfo > div:nth-child(1) i').textContent;
     var note = 'Rating: '+document.querySelector('.num').textContent.trim();
     genres = Array.from(document.querySelectorAll('.wd-full .mgen a')).map(g=>g.textContent.trim());
     var desc = document.querySelector('.entry-content.entry-content-single p').textContent.trim();
