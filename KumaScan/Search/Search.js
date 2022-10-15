@@ -197,8 +197,8 @@ var sorties = [];
 let emptyKeyValue = [new KeyValue('', '')];
 dtas = document.querySelectorAll('.listupd .bsx');
 for (d of dtas) {
-    var type = d.querySelector('.type.Manga').textContent;
-    var rating = 'Rating: ' +d.querySelector('.numscore').textContent.trim();
+    var type = d.querySelector('.limit span').textContent;
+    var rating = 'Rating: ' + d.querySelector('.numscore').textContent.trim();
     var title = d.querySelector('a').title;
     var link = d.querySelector('a').href;
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
@@ -208,10 +208,10 @@ for (d of dtas) {
     let donnes = new Data(image, title, rating, chapitre, type, '', '', false, link);
     sorties.push(donnes);
 }
-var testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width',
-    4, 11), new Size(0, 0), 10, 10);
-output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section(
-    '', false), testLayout, sorties));
+var testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4,
+    11), new Size(0, 0), 10, 10);
+output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('',
+    false), testLayout, sorties));
 let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',
     emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(searchPageObject);
