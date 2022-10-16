@@ -199,15 +199,15 @@
   var sortie2 = [];
   var dons = document.querySelectorAll('.slidtop .slide-item.full');
   for (d of dons) {
-      var image = d.querySelector('.slide-content a img').src;
+      var image = d.querySelector('.slide-content a img').src.replace('?resize=205,265','');
       image = new ModuleRequest(image, 'get', emptyKeyValue, null);
       var link = d.querySelector('.slide-content a').href;
       link = new ModuleRequest(link, 'get', emptyKeyValue, null);
       var title = d.querySelector('.ellipsis').textContent.trim();
       var type = d.querySelector('.info-left .release-year').textContent;
       var rat = 'Rating: ' + d.querySelector('.site-vote span span').textContent.trim();
-      var status = d.querySelector('.cast .director').textContent.trim();
-      var donnes = new Data(image, status, title, rat, type, '', '', false, link);
+      var statu = d.querySelector('.cast .director').textContent.trim();
+      var donnes = new Data(image, statu, title, rat, type, '', '', false, link);
       sortie.push(donnes);
   }
   var mem = document.querySelectorAll('.listupd .bs.styletere .bsx');
@@ -216,7 +216,7 @@
       var title = m.querySelector('a').title;
       var link = m.querySelector('a').href;
       link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-      var image = m.querySelector('.limit img').src;
+      var image = m.querySelector('.limit img').src.replace('?resize=165,225','');
       image = new ModuleRequest(image, 'get', emptyKeyValue, null);
       var chap = m.querySelector('.bigor .epxs').textContent.trim();
       var info = new Data(image, title,'' , chap, '', '', '', false, link);
@@ -224,12 +224,13 @@
   }
   var crap = document.querySelectorAll('.bixbox.hothome .listupd .bsx');
   for (c of crap) {
-      var image = c.querySelector('.limit img').src;
+      var image = c.querySelector('.limit img').src.replace('?resize=165,225','');
       image = new ModuleRequest(image, 'get', emptyKeyValue, null);
       var link = c.querySelector('a').href;
       link = new ModuleRequest(link, 'get', emptyKeyValue, null);
       var title = c.querySelector('a').title;
-      var hum = new Data(image, '', '', title, '⭐', '', '', false, link);
+      var rate = c.querySelector('.numscore').textContent.trim();
+      var hum = new Data(image, '', '', title, rat, '', '', false, link);
       sortie2.push(hum);
   }
   output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,new Section('', true), null, sortie));
