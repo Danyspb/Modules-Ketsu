@@ -211,7 +211,7 @@ for (i = 0; i < check.length; i++) {
         }
         var link = don.querySelector('tr:nth-child(2) td center div a ').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        miam.push(new Data(image, '',type, title, '⭐', '', '', false, link));
+        miam.push(new Data(image, '','', title, type, '', '', false, link));
         }
     }
     
