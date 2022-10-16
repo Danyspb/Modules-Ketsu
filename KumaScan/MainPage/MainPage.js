@@ -230,7 +230,7 @@
       link = new ModuleRequest(link, 'get', emptyKeyValue, null);
       var title = c.querySelector('a').title;
       var rate = c.querySelector('.numscore').textContent.trim();
-      var hum = new Data(image, '', '', title, rat, '', '', false, link);
+      var hum = new Data(image, '', '', title, rate, '', '', false, link);
       sortie2.push(hum);
   }
   output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,new Section('', true), null, sortie));
