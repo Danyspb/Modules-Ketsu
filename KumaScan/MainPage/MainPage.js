@@ -235,7 +235,7 @@
   }
   output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,new Section('', true), null, sortie));
   output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none,new Section('Popular Today :', true), null, sortie2));
-  output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsFull, Paging.leading, new Section('Last Update :', true), null, sortie1));
+  output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFull, Paging.leading, new Section('Last Update :', true), null, sortie1));
   let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('',emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
   var finalJson = JSON.stringify(MainPageObject);
   savedData.innerHTML = finalJson;
