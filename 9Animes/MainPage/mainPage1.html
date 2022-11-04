@@ -1104,6 +1104,7 @@
 
     var sortie1 = [];
     var sortie2 = [];
+    var sortie3 = [];
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
 
@@ -1132,10 +1133,24 @@
         sortie2.push(new Data(image, title, '',type,epis,'','',false,link));
     }
 
+    var avoir2 = document.querySelectorAll('.ulclear.grid-item.grid-item-featured')[1];
+    var inf = avoir2.querySelectorAll('li');
+    for (i of inf){
+        var title = i.querySelector('.thumb').title;
+        var link = i.querySelector('.thumb').href;
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        var epis = i.querySelector('.gr-eps').textContent.trim();
+        var image = i.querySelector('a img').src;
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        var type = i.querySelector('.gr-type span').textContent;
+        sortie3.push(new Data(image, title, '',type,epis,'','',false,link));
+    }
+
     let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(430, 105), new Ratio('width', 6, 10), new Size(0, 0), 0, 0);
 
     output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading,new Section('', true), layout, sortie1));
     output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Featured', true), null, sortie2));
+    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsFullDouble, Paging.leading, new Section('OnGoing', true), null, sortie3));
     let MainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
