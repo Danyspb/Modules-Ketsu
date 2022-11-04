@@ -10,8 +10,8 @@
     "moduleLenguage": "ENG",
     "moduleType": "Video",
     "baseURL": "https://9animes.ru/9anime.ru",
-    "moduleDeveloperSite": "",
-    "UpdateSite": "",
+    "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/9Animes",
+    "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/9Animes/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
