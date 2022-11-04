@@ -945,7 +945,7 @@
     var type = document.querySelector('.dcis.dcis-04').textContent.trim().replace('Type: ','');
     var status = document.querySelector('.dcis.dcis-03').textContent.trim().replace('Status: ','');
     genres = Array.from(document.querySelectorAll('.dcis.dcis-01 a')).map(g => g.textContent.trim());
-    var desc = document.querySelector('.dci-desc').textContent.trim().replaceAll('\n','')
+    var desc = document.querySelector('.dci-desc').textContent.replaceAll('\\n','')
     var title = document.querySelector('.dc-title strong').textContent;
     var image = document.querySelector('.dc-thumb img').src;
     image = new ModuleRequest(image,'get',emptyKeyValue,null);
@@ -959,7 +959,7 @@
     }
     
     let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), 
-    new Output(image, title, parsedJson.request, desc, genres, vie, status, type, 'Eps: '  + episodes.length, episodes.reverse()));
+    new Output(image, title, parsedJson.request, '', genres, vie, status, type, 'Eps: '  + episodes.length, episodes.reverse()));
     var finalJson = JSON.stringify(infoPageObject);
     savedData.innerHTML = finalJson;
     </script>
