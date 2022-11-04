@@ -66,24 +66,21 @@
     }
     
     var output = [];
-    var savedData = document.getElementById('ketsu-final-data');
-    var parsedJson = JSON.parse(savedData.innerHTML);
-    
-    var emptyKeyValue = [new KeyValue('', '')];
-
-    var serveur = document.querySelectorAll('.mirror > option');
-    for (var x= 1; x< serveur.length; x++){
-        var serv = serveur[x].value;
-        var iframe = atob(serv);
-        var html = new DOMParser();
-        var parser = html.parseFromString(iframe, 'text/html');
-        var link = parser.querySelector('iframe').src;
-        output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-    }
-
-    
-    let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
-    var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
-    var finalJson = JSON.stringify(chaptersObject);
-    savedData.innerHTML = finalJson;
+      var savedData = document.getElementById('ketsu-final-data');
+      var parsedJson = JSON.parse(savedData.innerHTML);
+      var emptyKeyValue = [new KeyValue('', '')];
+      var serveur = document.querySelectorAll('.item.video-nav select option')
+      for (var x = 1; x < serveur.length; x++) {
+          var serv = serveur[x].value;
+          var iframe = atob(serv);
+          var html = new DOMParser();
+          var parser = html.parseFromString(iframe, 'text/html');
+          var link = parser.querySelector('iframe').src;
+          output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+      }
+      let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
+      var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra,
+          new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
+      var finalJson = JSON.stringify(chaptersObject);
+      savedData.innerHTML = finalJson;
     

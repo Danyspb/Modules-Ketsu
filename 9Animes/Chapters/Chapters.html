@@ -1,4 +1,5 @@
-   
+
+    <script type="text/javascript">    
         function Chapters(request, extra, javascriptConfig, output) {
         this.request = request;
         this.extra = extra;
@@ -59,17 +60,6 @@
         this.videoLink = videoLink;
     }
     
-    function getFile(url) {
-        var request = new XMLHttpRequest();
-        request.open('GET', url, false);
-        request.send(null);
-        if (request.status === 200) {
-            console.log(request.responseText);
-            return request.responseText;
-        } else {
-            return null;
-        }
-    }
 
     
     function Text(text) {
@@ -82,14 +72,13 @@
     
     var emptyKeyValue = [new KeyValue('', '')];
 
-    var donneslink = document.querySelectorAll('iframe');
-    for (d of donneslink){
-        var link = d.src;
-        output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-    }
+    // Fill the output object with the data, depending on your module data type (images, text or video) nulllify the ones that you dont need.
+        // Scripts cant use comments so delete them before loading them into KETSU.
+    // add a \ if you are going to use ""
+
     let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
     var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
     var finalJson = JSON.stringify(chaptersObject);
     savedData.innerHTML = finalJson;
     
-   
+    </script>
