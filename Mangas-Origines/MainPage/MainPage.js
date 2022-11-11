@@ -205,7 +205,7 @@
           var types = ok.querySelector('.slider__thumb_item >span').textContent;
           var link = ok.querySelector('.slider__thumb_item > a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = ok.querySelector('.slider__thumb_item a nop img').src;
+          var image = ok.querySelector('.slider__thumb_item a img').src;
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var title = ok.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
           var hii = new Data(image, '', '', title, types, '', '', false, link);
