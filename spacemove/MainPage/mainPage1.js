@@ -216,22 +216,8 @@
   var parsedJson = JSON.parse(savedData.innerHTML); 
 
   let output = [];
-  var donnes = [];
-  
+
   let emptyKeyValue = [new KeyValue('','')];
-
-  var founs = document.querySelectorAll('.dtw_content.dt_views_count article');
-  for (f of founs){
-      var link = f.querySelector('a').href;
-      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-      var image = f.querySelector('.image img ').src;
-      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-      var title = f.querySelector('.image img ').alt.trim();
-      var quality = f.querySelector('a div div span').textContent.trim();
-      var annee = f.querySelector('a div div span').textContent.trim();
-      donnes.push(new Data(image, '', quality,title,annee,'','',false,link));
-  }
-
   var donnes1 = [];
   var check = document.querySelectorAll('.items.normal')[0];
   var film = check.querySelectorAll('article');
@@ -261,11 +247,9 @@
     donnes2.push(ser);
   }
 
-  let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(430, 105), new Ratio('width', 6, 10), new Size(0, 0), 0, 0);
-  output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading,new Section('', true), layout, donnes));
   output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Latest Movies Added :', true), null, donnes1));
   output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('New Series Updated :', true), null, donnes2));
-  let MainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
+  let MainPageObject = new MainPage(new ModuleRequest('https://spacemov.site/trending/','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
   var finalJson = JSON.stringify(MainPageObject);
   savedData.innerHTML = finalJson;
   

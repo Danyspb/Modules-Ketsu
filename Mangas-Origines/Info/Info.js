@@ -101,7 +101,7 @@ for (let a = 0; a < inf1.length; a++) {
     }
 }
 var title = document.querySelector('.container .post-title h1').textContent.trim();
-var image = document.querySelector('.summary_image a img').dataset.lazySrc;
+var image = document.querySelector('.summary_image a img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
 inf = [];
 var test = document.querySelectorAll('.post-content');

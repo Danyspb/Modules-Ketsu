@@ -67,7 +67,7 @@ var parsedJson = JSON.parse(savedData.innerHTML);
 var emptyKeyValue = [new KeyValue('referer', 'https://mangas-origines.fr/')];
 var cherch = document.querySelectorAll('.reading-content .page-break.no-gaps');
 for (cher of cherch) {
-  var voir = cher.querySelector('img').dataset.lazySrc;
+  var voir = cher.querySelector('img').dataset.src;
   output.push(new ModuleRequest(voir, 'get', emptyKeyValue, null));
 }
 if (output.length == 0) {
