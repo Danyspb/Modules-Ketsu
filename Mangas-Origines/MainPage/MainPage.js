@@ -216,7 +216,7 @@
       for (r of reg) {
           var link = r.querySelector('a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = r.querySelector('.slider__thumb_item.c-image-hover a nop img').src.replace('-125x180', '');
+          var image = r.querySelector('.slider__thumb_item.c-image-hover a img').src.replace('-125x180', '');
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var title = r.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
           var hooo = new Data(image, title, '', '', '', '', '', false, link);
@@ -228,7 +228,7 @@
           var title = c.querySelector('.item-thumb.c-image-hover a').title;
           var link = c.querySelector('.item-thumb.c-image-hover a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = c.querySelector('a nop img').src.replace('-193x278', '');
+          var image = c.querySelector('a img').src.replace('-193x278', '');
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var types = c.querySelector('.item-thumb.c-image-hover > a > span').textContent;
           var hum = new Data(image, '', types, title, '⭐', '', '', false, link);
@@ -241,7 +241,7 @@
           var title = re.querySelector('.item-summary h3 a').textContent.trim();
           var link = re.querySelector('.item-summary h3 a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-          var image = re.querySelector('.item-thumb.hover-details.c-image-hover a nop img').src.replace('-110x150', '');
+          var image = re.querySelector('.item-thumb.hover-details.c-image-hover a img').src.replace('-110x150', '');
           var type = re.querySelector('span').textContent.trim();
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var haha = new Data(image, title, '', type, '', '', '', false, link);
@@ -254,7 +254,7 @@
           var link = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a').href;
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
           var title = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a').title;
-          var image = av.querySelector('a nop img').src.replace('-75x106', '');
+          var image = av.querySelector('a img').src.replace('-75x106', '');
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
           var chapi = av.querySelector('.popular-content .list-chapter > div').textContent.replace('', '').trim();
           var hoho = new Data(image, '', chapi, '', title, '', '', false, link);
