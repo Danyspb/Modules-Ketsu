@@ -209,7 +209,6 @@ function shuffle(a) {
 }
 
 
-
 var savedData = document.getElementById('ketsu-final-data');
 
 var parsedJson = JSON.parse(savedData.innerHTML);
