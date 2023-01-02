@@ -1,15 +1,15 @@
 {
   "moduleInfo": {
-    "moduleName": "",
-    "moduleInitials": "",
-    "moduleDesc": "",
-    "developer": "",
-    "moduleID": "SDFSDFDSFSDFSDF",
+    "moduleName": "ReaperScanFR",
+    "moduleInitials": "RP",
+    "moduleDesc": "un module pour lire les manhwa web novel comic en francais",
+    "developer": "Danyspb4ever",
+    "moduleID": "8463146543113464",
     "moduleImage": "",
-    "moduleVersion": 1.0,
-    "moduleLenguage": "ENG",
-    "moduleType": "Video",
-    "baseURL": "",
+    "moduleVersion": 1.11111,
+    "moduleLenguage": "FR",
+    "moduleType": "image",
+    "baseURL": "https://reaperscans.fr",
     "moduleDeveloperSite": "",
     "UpdateSite": "",
     "preferedServer": "",
@@ -41,7 +41,7 @@
   "mainPage": [
    {
       "request": {
-        "url": "",
+        "url": "https://reaperscans.fr",
         "method": "get",
         "headers": [
           {
