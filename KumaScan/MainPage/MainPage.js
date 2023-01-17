@@ -199,7 +199,7 @@
   var sortie2 = [];
   var dons = document.querySelectorAll('.slidtop .slide-item.full');
   for (d of dons) {
-      var image = d.querySelector('.slide-content a img').src.replace('?resize=205,265','');
+      var image = d.querySelector('.slide-content a img').src;
       image = new ModuleRequest(image, 'get', emptyKeyValue, null);
       var link = d.querySelector('.slide-content a').href;
       link = new ModuleRequest(link, 'get', emptyKeyValue, null);
@@ -216,7 +216,7 @@
       var title = m.querySelector('a').title;
       var link = m.querySelector('a').href;
       link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-      var image = m.querySelector('.limit img').src.replace('?resize=165,225','');
+      var image = m.querySelector('.limit img').src;
       image = new ModuleRequest(image, 'get', emptyKeyValue, null);
       var chap = m.querySelector('.bigor .epxs').textContent.trim();
       var info = new Data(image, title,'' , chap, '', '', '', false, link);
@@ -224,7 +224,7 @@
   }
   var crap = document.querySelectorAll('.bixbox.hothome .listupd .bsx');
   for (c of crap) {
-      var image = c.querySelector('.limit img').src.replace('?resize=165,225','');
+      var image = c.querySelector('.limit img').src;
       image = new ModuleRequest(image, 'get', emptyKeyValue, null);
       var link = c.querySelector('a').href;
       link = new ModuleRequest(link, 'get', emptyKeyValue, null);
