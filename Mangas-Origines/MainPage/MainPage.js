@@ -230,7 +230,7 @@
           link = new ModuleRequest(link, 'get', emptyKeyValue, null);
           var image = c.querySelector('a img').src.replace('-193x278', '');
           image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-          var types = c.querySelector('.item-thumb.c-image-hover > a > span').textContent;
+          var types = c.querySelector('.meta-item.genres').textContent.trim();
           var hum = new Data(image, '', types, title, '⭐', '', '', false, link);
           sortie1.push(hum);
       }
