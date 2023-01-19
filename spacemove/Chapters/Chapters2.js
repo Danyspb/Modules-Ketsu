@@ -66,37 +66,42 @@ function getValueFromKey(keys, key) {
         }
     }
 }
+
 let request = '';
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var extraInfo = parsedJson.extra.extraInfo;
+console.log(extraInfo);
 var emptyKeyValue = parsedJson.request.headers;
 var output = parsedJson.output.videos;
-var actualCount = getValueFromKey(extraInfo, 'count');
+var actualCount = getValueFromKey(extraInfo, 'count') ;
 var nextCount = parseInt(actualCount) + 1;
 var nextRequest = getValueFromKey(extraInfo, nextCount);
 if (actualCount == 0) {
     output = new Videos([], []);
 }
-
 let json = JSON.parse(document.querySelector('script').innerText.replace('*/','').replace('/*',''));
 var iframe= json.embed_url;
-let parser = new DOMParser();
-let doc = parser.parseFromString(iframe, 'text/html');
-iframe = doc.querySelector('iframe');
-let fixedLink = iframe.src.replace('https://streamtape.com/', 'https://streamta.pe/').replace('https://viewsb.com', 'https://watchsb.com').replace('?ov-ignore=true', '');
-if (!fixedLink.includes('https')) {
-    fixedLink = 'https://' + fixedLink;
+if(!iframe.includes('youtube')){
+  let parser = new DOMParser();
+  let doc = parser.parseFromString(iframe, 'text/html');
+  iframe = doc.querySelector('iframe');
+  let fixedLink = iframe.src.replace('https://streamtape.com/', 'https://streamta.pe/').replace('https://viewsb.com', 'https://watchsb.com').replace('?ov-ignore=true', '');
+  output.needsResolver.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', [new KeyValue('Referer',fixedLink)], null)));
+  if (!fixedLink.includes('https')) {
+        fixedLink = 'https://' + fixedLink;
+    }
+} else {
+  output.needsResolver.push(new NeedsResolver('', new ModuleRequest(json.embed_url, 'get',  [], null)));
 }
 
-output.needsResolver.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', [new KeyValue('Referer',fixedLink)], null)));
-extraInfo[0].value = '' + (nextCount);
 if (nextRequest == undefined) {
    request = new ModuleRequest('', 'post', emptyKeyValue,null);
 } else {
-  request = new ModuleRequest(nextRequest.split('?')[0], 'post', emptyKeyValue,nextRequest.split('?')[1].replace('?',''));
+  request = new ModuleRequest(nextRequest.split('?')[0], 'post', emptyKeyValue,nextRequest.split('?')[1].replace('?','').replaceAll('amp;',''));
 }
-let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
-var chaptersObject = new Chapters(request, emptyExtra, new JavascriptConfig(true, false, ''), new Output(output, null, null));
+extraInfo[0].value = '' + (nextCount);
+let emptyExtra = new Extra([new Commands('', [])], extraInfo);
+var chaptersObject = new Chapters(request, emptyExtra, new JavascriptConfig(false, false, ''), new Output(output, null, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;

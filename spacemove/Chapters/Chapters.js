@@ -58,17 +58,10 @@ function Video(videoQuality, videoLink) {
     this.videoLink = videoLink;
 }
 
-function getFile(url) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', url, false);
-    xhr.send();
-    return xhr.responseText;
-}
-
 var output = [];
 var savedData = document.getElementById('ketsu-final-data');
-var extraInfo = [new KeyValue('count', '0')];
 var parsedJson = JSON.parse(savedData.innerHTML);
+var extraInfo = [new KeyValue('count', '0')];
 var emptyKeyValue = [ new KeyValue('Content-Type', 'application/x-www-form-urlencoded')];
 let servers = document.querySelectorAll('#playeroptionsul li');
 let nextRequest = '';
@@ -78,12 +71,14 @@ for (let x = 0; x < servers.length; x++) {
     let id = server.dataset.post;
     let type = server.dataset.type;
     let nume = server.dataset.nume;
-    let action = 'doo_player_ajax';
-    let request = post_link +`?action=${action}&post=${id}&nume=${nume}&type=${type}`;
-    if (x == 0) {
-        nextRequest = request;
-    } else {
-        extraInfo.push(new KeyValue(`${x}`, `${request}`));
+    if(!(nume =='trailer')){
+        let action = 'doo_player_ajax';
+        let request = post_link +`?action=${action}&post=${id}&nume=${nume}&type=${type}`;
+        if (nextRequest == '') {
+            nextRequest = request;
+        } else {
+            extraInfo.push(new KeyValue(`${x}`, `${request}`));
+        }
     }
 }
 
