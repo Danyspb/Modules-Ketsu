@@ -1,5 +1,4 @@
-  
-    function Chapters(request, extra, javascriptConfig, output) {
+function Chapters(request, extra, javascriptConfig, output) {
     this.request = request;
     this.extra = extra;
     this.javascriptConfig = javascriptConfig;
@@ -34,7 +33,7 @@ function KeyValue(key, value) {
     this.value = value;
 }
 
-function Output( videos, images, text) {
+function Output(videos, images, text) {
     this.videos = videos;
     this.images = images;
     this.text = text;
@@ -59,31 +58,36 @@ function Video(videoQuality, videoLink) {
     this.videoLink = videoLink;
 }
 
-function getFile(url){
+function getFile(url) {
     var xhr = new XMLHttpRequest();
     xhr.open('get', url, false);
     xhr.send();
     return xhr.responseText;
 }
 
-
-
-function Text(text) {
-    this.text = text;
-}
-
 var output = [];
 var savedData = document.getElementById('ketsu-final-data');
+var extraInfo = [new KeyValue('count', '0')];
 var parsedJson = JSON.parse(savedData.innerHTML);
-
-var emptyKeyValue = [new KeyValue('', '')];
-var serveur = document.querySelectorAll('iframe');
-for(s of serveur){
-    var link = s.src;
-    output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+var emptyKeyValue = [ new KeyValue('Content-Type', 'application/x-www-form-urlencoded')];
+let servers = document.querySelectorAll('#playeroptionsul li');
+let nextRequest = '';
+let post_link = 'https://spacemov.site/wp-admin/admin-ajax.php';
+for (let x = 0; x < servers.length; x++) {
+    let server = servers[x];
+    let id = server.dataset.post;
+    let type = server.dataset.type;
+    let nume = server.dataset.nume;
+    let action = 'doo_player_ajax';
+    let request = post_link +`?action=${action}&post=${id}&nume=${nume}&type=${type}`;
+    if (x == 0) {
+        nextRequest = request;
+    } else {
+        extraInfo.push(new KeyValue(`${x}`, `${request}`));
+    }
 }
 
-let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
-var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
+let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
+var chaptersObject = new Chapters(new ModuleRequest(nextRequest.split('?')[0], 'post', emptyKeyValue,nextRequest.split('?')[1].replace('?','')), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(null, null), null, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;
