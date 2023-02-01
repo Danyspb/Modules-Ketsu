@@ -220,18 +220,6 @@ var savedData = document.getElementById('ketsu-final-data');
         var hooo = new Data(image, title, '', '', '', '', '', false, link);
         nouv.push(hooo);
     }
-    /*var sortie1 = [];
-    var check = document.querySelectorAll('.c-page__content .grid9 > div');
-    for (c of check) {
-        var title = c.querySelector('.item-thumb.c-image-hover a').title;
-        var link = c.querySelector('.item-thumb.c-image-hover a').href;
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var image = c.querySelector('a img').src.replace('-193x278', '');
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var types = c.querySelector('.meta-item.genres').textContent.trim();
-        var hum = new Data(image, '', types, title, 'â­', '', '', false, link);
-        sortie1.push(hum);
-    }*/
     var sortie2 = [];
     var recup = document.querySelectorAll('.page-item-detail.manga');
     for (re of recup) {
@@ -243,20 +231,7 @@ var savedData = document.getElementById('ketsu-final-data');
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         var haha = new Data(image, title, '', '', '', '', '', false, link);
         sortie2.push(haha);
-    }/*
-    var sortie3 = [];
-    var avoir = document.querySelectorAll(
-        '.sidebar-col.col-md-4.col-sm-4 .c-widget-content.style-1 .widget-content > div');
-    for (av of avoir) {
-        var link = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a').href;
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var title = av.querySelector('.popular-img.widget-thumbnail.c-image-hover a').title;
-        var image = av.querySelector('a img').src.replace('-75x106', '');
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var chapi = av.querySelector('.popular-content .list-chapter > div').textContent.replace('', '').trim();
-        var hoho = new Data(image, '', chapi, '', title, '', '', false, link);
-        sortie3.push(hoho);
-    }*/
+    }
     let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),
         new Size(0, 0), 0, 0);
     let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4,
@@ -267,12 +242,6 @@ var savedData = document.getElementById('ketsu-final-data');
         new Section('', true), layout1, [contact]));
     output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,
         new Section('Nouveauté :', true), null, nouv));
-        /*
-    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading,
-        new Section('Top de la semaine :', true), null, sortie3));
-    output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging
-        .none, new Section('Tendances :', true), null, sortie1));
-        */
     output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging
         .leading, new Section('Dernière mise a jour :', true), null, sortie2));
     let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands(
