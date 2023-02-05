@@ -178,6 +178,13 @@ function quickData ( link, image, title, field1 ) {
     return new Data( image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link );
 }
 
+function getFile(url) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('post', url, false);
+    xhr.send();
+    return xhr.responseText;
+}
+
 function shuffle ( a ) {
     var j, x, i;
     for ( i = a.length - 1; i > 0; i-- ) {
@@ -192,13 +199,18 @@ var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
     let output = [];
     let emptyKeyValue = [new KeyValue('', '')];
+    let url = 'https://mangas-origines.fr';
     const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
     var lien = new ModuleRequest('https://discord.gg/BN8ZbtKp', 'get', emptyKeyValue, null);
     var contact = new Data(rien,
         'En cas de probléme du module veuillez le signaler au niveau du serveur Discord de Ketsu.\nVous pouvez y accéder en cliquant sur ce texte.\nAllez bonne lecture .\nDanyspb',
         '', '', '', '', '', false, lien, false);
+
     var sortie = [];
-    var slid = document.querySelectorAll('.manga-slider.style-2 .slider__container .slider__item ');
+    var content = getFile(url);
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(content, 'text/html');
+    var slid = doc.querySelectorAll('.site-content .widget-content rs-slide');
     for (ok of slid) {
         var types = ok.querySelector('.slider__thumb_item >span').textContent;
         var link = ok.querySelector('.slider__thumb_item > a').href;
