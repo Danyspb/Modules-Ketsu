@@ -244,19 +244,12 @@ var savedData = document.getElementById('ketsu-final-data');
         var haha = new Data(image, title, '', '', '', '', '', false, link);
         sortie2.push(haha);
     }
-    let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),
-        new Size(0, 0), 0, 0);
-    let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4,
-        10), new Size(0, 0), 0, 0);
-    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging
-        .leading, new Section('', true), layout, sortie));
-    output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered,
-        new Section('', true), layout1, [contact]));
-    output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,
-        new Section('Nouveauté :', true), null, nouv));
-    output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging
-        .leading, new Section('Dernière mise a jour :', true), null, sortie2));
-    let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands(
-        '', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
+    let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),new Size(0, 0), 0, 0);
+    let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4,10), new Size(0, 0), 0, 0);
+    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sortie));
+    output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered,new Section('', true), layout1, [contact]));
+    output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,new Section('Nouveauté :', true), null, nouv));
+    output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Dernière mise a jour :', true), null, sortie2));
+    let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
