@@ -199,57 +199,43 @@ var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
     let output = [];
     let emptyKeyValue = [new KeyValue('', '')];
-    let url = 'https://mangas-origines.fr';
+    var sortie = [];
+    var sortie1 = [];
+    var genres = [];
     const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
     var lien = new ModuleRequest('https://discord.gg/BN8ZbtKp', 'get', emptyKeyValue, null);
-    var contact = new Data(rien,
-        'En cas de probléme du module veuillez le signaler au niveau du serveur Discord de Ketsu.\nVous pouvez y accéder en cliquant sur ce texte.\nAllez bonne lecture .\nDanyspb',
-        '', '', '', '', '', false, lien, false);
+    var contact = new Data(rien,'En cas de probléme du module veuillez le signaler au niveau du serveur Discord de Ketsu.\nVous pouvez y accéder en cliquant sur ce texte.\nAllez bonne lecture .\nDanyspb','', '', '', '', '', false, lien, false);
+    var don = document.querySelectorAll('.widget-content rs-slide');
+    for (d of don){
+        genres = Array.from(d.querySelectorAll('.genres-content.full a')).map(g =>g.textContent).toString().replaceAll(',',' , ');
+        var image = d.querySelector('img').dataset.lazyload.replace('//','https://');
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        var title = d.dataset.title;
+        var link = d.querySelector('a.rs-layer').href;
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        sortie.push(new Data(image, title, genres, '', '', '', '', false, link));
+    }
+      var result = [];
+      result = sortie.filter(function(sortie) {
+        return sortie.title !== 'Slide';
+      });
 
-    var sortie = [];
-    var content = getFile(url);
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(content, 'text/html');
-    var slid = doc.querySelectorAll('.site-content .widget-content rs-slide');
-    for (ok of slid) {
-        var types = ok.querySelector('.slider__thumb_item >span').textContent;
-        var link = ok.querySelector('.slider__thumb_item > a').href;
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var image = ok.querySelector('.slider__thumb_item a img').src;
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var title = ok.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
-        var hii = new Data(image, '', '', title, types, '', '', false, link);
-        sortie.push(hii);
+    var recent = document.querySelectorAll('.page-item-detail.manga');
+    for (r of recent){
+      var title = r.querySelector('a').title;
+      var image = r.querySelector('a img').src;
+      image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+      var link = r.querySelector('a').href;
+      link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+      sortie1.push(new Data(image, title, '', '', '', '', '', false, link));
     }
-    var nouv = [];
-    var reg = document.querySelectorAll('.popular-slider.style-3 .slider__item');
-    for (r of reg) {
-        var link = r.querySelector('a').href;
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var image = r.querySelector('.slider__thumb_item.c-image-hover a img').src.replace('-125x180', '');
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var title = r.querySelector('.slider__content .post-title.font-title > h4').textContent.replace('', '');
-        var hooo = new Data(image, title, '', '', '', '', '', false, link);
-        nouv.push(hooo);
-    }
-    var sortie2 = [];
-    var recup = document.querySelectorAll('.page-item-detail.manga');
-    for (re of recup) {
-        var title = re.querySelector('.item-thumb.hover-details.c-image-hover a').title;
-        var link = re.querySelector('.item-thumb.hover-details.c-image-hover a').href;
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var image = re.querySelector('.item-thumb.hover-details.c-image-hover a img').src.replace('-175x238', '');
-        
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var haha = new Data(image, title, '', '', '', '', '', false, link);
-        sortie2.push(haha);
-    }
+
+
     let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10),new Size(0, 0), 0, 0);
     let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4,10), new Size(0, 0), 0, 0);
-    output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sortie));
+    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Populaire :', true), null, result));
     output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered,new Section('', true), layout1, [contact]));
-    output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,new Section('Nouveauté :', true), null, nouv));
-    output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Dernière mise a jour :', true), null, sortie2));
+    output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Dernière mise a jour :', true), null, sortie1));
     let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
