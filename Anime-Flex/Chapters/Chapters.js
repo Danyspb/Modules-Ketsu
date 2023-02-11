@@ -84,11 +84,11 @@
     var emptyKeyValue = [new KeyValue('referer', 'https://anime-flix.in/')];
     var urls = [];
     var servers = document.querySelectorAll('.ajax_mode li');
-    for (server of servers) {
-        var type = server.dataset.type;
-        var id = server.dataset.post;
-        var serv = server.dataset.nume;
-        var url = `https://anime-flix.net/wp-json/dooplayer/v2/${id}/${type}/${serv}`;
+    for (don of servers) {
+        var type = don.dataset.type;
+        var id = don.dataset.post;
+        var serv = don.dataset.nume;
+        var url = `https://anime-flix.in/wp-json/dooplayer/v2/${id}/${type}/${serv}`;
         urls.push(url);
     }
     for (url of urls) {
