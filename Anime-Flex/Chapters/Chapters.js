@@ -81,7 +81,7 @@
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
 
-    var emptyKeyValue = [new KeyValue('', '')];
+    var emptyKeyValue = [new KeyValue('referer', 'https://anime-flix.in/')];
     var urls = [];
     var servers = document.querySelectorAll('.ajax_mode li');
     for (server of servers) {
