@@ -213,7 +213,7 @@ const DefaultLayouts = {
    var parsedJson = JSON.parse(savedData.innerHTML);
    var donnes = [];
    let output = [];
-   let emptyKeyValue = [new KeyValue('','')];
+   let emptyKeyValue = [new KeyValue('referer','https://www.ianimes.org/404.html')];
    var page  = [
        'Xdf789POGg45rrty','Wqs418Rtbsdfg7987ds','QQo447FFtxvxw7987','Qxc108FGkpodhjccjv','SpS891Ntpztzret87ty',
        'BoR851UkN56456uui','Xod038Fbzfghfdh87df','ADs480FvP01121j','ApG097Bgtzrte787dfg','Wup331BgFuytt788o', 

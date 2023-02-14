@@ -193,7 +193,7 @@
   var savedData = document.getElementById('ketsu-final-data');
   var parsedJson = JSON.parse(savedData.innerHTML);
   let output = parsedJson.output;
-  let emptyKeyValue = [new KeyValue('', '')];
+  let emptyKeyValue = [new KeyValue('referer','https://www.ianimes.org/index.php')];
   var dat = [];
   var donnes = [];
   var rec = document.querySelectorAll('#content > div > center:nth-child(7) > table > tbody > tr > td');
