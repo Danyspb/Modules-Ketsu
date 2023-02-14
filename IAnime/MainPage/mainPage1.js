@@ -230,8 +230,7 @@ const DefaultLayouts = {
 
    var cherch = document.querySelectorAll('#showcase-holder .showcase .showcase-slide');
    for (r of cherch){
-       var mg = r.querySelector('.showcase-content :nth-child(1)').style.backgroundImage.substr(5);
-       var image = mg.split(')')[0].trim().replace('\"','');
+       var image = r.querySelector('.showcase-content :nth-child(1)').style.backgroundImage.match(/http.*(jpg|png|jpeg)/gm)[0];
        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
        var title = r.querySelector('.showcase-caption center titre6').textContent.trim();
        var type = r.querySelector('.showcase-caption center:nth-child(2) titre6 font:nth-child(2)').textContent.trim();
