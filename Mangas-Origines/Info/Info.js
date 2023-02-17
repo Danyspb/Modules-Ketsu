@@ -52,80 +52,43 @@ function Output(image, title, link, description, genres, field1, field2, field3,
     this.chapters = chapters;
 }
 
-function getStuff(array, match) {
-    for (var x = 0; x < array.length; x++) {
-        let data = array[x].innerText;
-        if (data.includes(match)) {
-            return data.replace(match, '').trim();
-        }
-    }
-}
-
-function getFile(url) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('post', url, false);
-    xhr.send();
-    return xhr.responseText;
-}
-
-function getHtmlStuff(array, match) {
-    for (var x = 0; x < array.length; x++) {
-        let data = array[x].innerText;
-        if (data.includes(match)) {
-            return array[x];
-        }
-    }
-}
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
-let emptyKeyValue = [new KeyValue('referer', 'https://mangas-origines.fr/')];
-var genres = [];
-var sca = [];
-var type = '';
-var desc = document.querySelector('.manga-excerpt p').textContent.trim();
-var inf1 = [];
-var dat = '';
-var hum = document.querySelectorAll('.post-status');
-inf1 = hum[0].querySelectorAll('.post-content_item');
-for (let a = 0; a < inf1.length; a++) {
-    if (inf1[a].querySelector('.summary-heading h5').textContent.includes('Sortie')) {
-        dat = inf1[a].querySelector('.summary-content').textContent.trim();
+let emptyKeyValue = [new KeyValue('', '')];
+var episodes = [];
+let content = document.querySelectorAll('.post-content_item');
+
+let status = '';
+let type = '';
+for (let x = 0; x < content.length; x++) {
+    let data = content[x].querySelector('h5').textContent.trim();
+    if (data.includes('Type')) {
+        type = content[x].querySelector('.summary-content').textContent.trim();
     }
-    if (inf1[a].querySelector('.summary-heading h5').textContent.includes('Statut')) {
-        var st = inf1[a].querySelector('.summary-content').textContent.trim();
-        if (st.includes('En cours')) {
-            var statu = 'En Cours';
-        } else {
-            var statu = 'Complete';
-        }
+    if (data.includes('Statut')) {
+        status = content[x].querySelector('.summary-content').textContent.trim();
     }
 }
-var title = document.querySelector('.container .post-title h1').textContent.trim();
-var image = document.querySelector('.summary_image a img').src;
+
+let genres = [];
+genres = Array.from(document.querySelectorAll('.genres-content a')).map(g => g.textContent);
+let desc = '';
+desc = document.querySelector("div.manga-excerpt");
+if (desc) {
+    desc = desc.textContent.trim();
+} else {
+    desc = ''
+}
+
+let title = document.querySelector('.post-title h1').textContent.trim();
+let image = document.querySelector('.summary_image img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-var inf = [];
-var test = document.querySelectorAll('.post-content');
-inf = test[0].querySelectorAll('.post-content_item');
-for (let i = 0; i < inf.length; i++) {
-    if (inf[i].querySelector('.summary-heading h5').textContent.includes('Type')) {
-        var type = inf[i].querySelector('.summary-content').textContent.trim();
-    }
-    if (inf[i].querySelector('.summary-heading h5').textContent.includes('Genre')) {
-        genres = Array.from(document.querySelectorAll('.genres-content > a')).map(g => g.textContent.trim());
-    }
-}
-var content = getFile(window.location.href + 'ajax/chapters');
-var parser = new DOMParser();
-var doc = parser.parseFromString(content, 'text/html');
-var informa = doc.querySelectorAll('.main.version-chap.no-volumn li');
-for (cr of informa) {
-    var link = cr.querySelector('a').href;
-    var mo = cr.querySelector('a').textContent.trim();
-    let chaip = new Chapter(mo, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
-    sca.push(chaip);
-}
-let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',
-    emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title,
-    parsedJson.request, desc, genres, dat, type, statu, 'Eps: ' + sca.length, sca.reverse()));
+let nextRequestHeaders = [new KeyValue('Referer', parsedJson.request.url), new KeyValue('x-requested-with', 'XMLHttpRequest')];
+nextRequestHeaders.push(new KeyValue('accept', '*/*'));
+nextRequestHeaders.push(new KeyValue('accept-encoding', 'gzip, deflate, br'));
+nextRequestHeaders.push(new KeyValue('accept-language', 'fr,fr-FR;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6,pt;q=0.5'));
+let nextRequest = new ModuleRequest(parsedJson.request.url + 'ajax/chapters', 'POST', nextRequestHeaders, null);
+
+let infoPageObject = new Info(nextRequest, new Extra([new Commands('',emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, true, ''), new Output(image, title,parsedJson.request, desc, genres, status, type, 'empty', 'Chapters : ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;
