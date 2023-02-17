@@ -52,7 +52,7 @@ function Output(image, title, link, description, genres, field1, field2, field3,
     this.chapters = chapters;
 }
 var savedData = document.getElementById('ketsu-final-data');
-var parsedJson = JSON.parse(savedData.innerText);
+var parsedJson = JSON.parse(savedData.innerText.replaceAll('\n',''));
 let emptyKeyValue = [new KeyValue('', '')];
 var image = parsedJson.output.image;
 var title = parsedJson.output.title;
@@ -63,7 +63,7 @@ var type = parsedJson.output.field2;
 var episodes = [];
 let chapters= document.querySelectorAll('.wp-manga-chapter a');
 for (var x = 0; x < chapters.length; x++) {
-    if(chapters[x].className != '') continue;
+   if(chapters[x].className != '') continue;
     let name = chapters[x].innerText;
     let link = chapters[x].href;
     let chapter = new Chapter(name, new ModuleRequest(link, 'get', emptyKeyValue, null), false);

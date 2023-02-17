@@ -66,7 +66,7 @@ for (let x = 0; x < content.length; x++) {
         type = content[x].querySelector('.summary-content').textContent.trim();
     }
     if (data.includes('Statut')) {
-        status = content[x].querySelector('.summary-content').textContent.trim();
+        status = content[x].querySelector('.summary-content').textContent.trim().replace('🟢','').replace('🔴','').replace('🟡','');
     }
 }
 
@@ -75,7 +75,7 @@ genres = Array.from(document.querySelectorAll('.genres-content a')).map(g => g.t
 let desc = '';
 desc = document.querySelector("div.manga-excerpt");
 if (desc) {
-    desc = desc.textContent.trim();
+    desc = desc.textContent.trim().replaceAll('\n','');
 } else {
     desc = ''
 }
