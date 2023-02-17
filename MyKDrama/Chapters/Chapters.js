@@ -77,20 +77,17 @@
     }
     
     var output = [];
-    var tel  = [];
       var savedData = document.getElementById('ketsu-final-data');
       var parsedJson = JSON.parse(savedData.innerHTML);
       var emptyKeyValue = [new KeyValue('', '')];
-      var serveur = document.querySelectorAll('.item.video-nav select option')
-      for (var x = 1; x < serveur.length; x++) {
-          var ifram = serveur[x].value;
-          tel.push(ifram);
-        //   var content = JSON.parse(getFile(url));
-        //   var iframe = atob(serv);
-        //   var html = new DOMParser();
-        //   var parser = html.parseFromString(iframe, 'text/html');
-        //   var link = parser.querySelector('iframe').src;
-          //output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+      var serveur = document.querySelectorAll('.mobius .mirror option');
+        for ( var x = 1; x < serveur.length; x++ ) {
+          var serv = serveur[x].value;
+          var content = getFile(serv);
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(content, 'text/html');
+          var link = doc.querySelector('.video-content iframe').src;
+          output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
       }
       let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
       var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra,
