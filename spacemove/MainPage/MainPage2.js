@@ -190,22 +190,38 @@ function shuffle ( a ) {
 }
 var savedData = document.getElementById( 'ketsu-final-data' );
 var parsedJson = JSON.parse( savedData.innerHTML );
-let output = [ ];
-let trending = [ ];
+let output = parsedJson.output;
 let emptyKeyValue = [ new KeyValue( '', '' ) ];
-var sour = document.querySelectorAll( '.items.normal article' );
-
-for ( s of sour ) {
-    var image = s.querySelector( '.poster img' ).src;
-    image = new ModuleRequest( image, 'get', emptyKeyValue, null );
-    var title = s.querySelector( '.poster img' ).alt;
-    var link = s.querySelector( '.poster a' ).href;
+var donnes1 = [ ];
+var check = document.querySelectorAll( '.items.normal' )[ 0 ];
+var film = check.querySelectorAll( 'article' );
+for ( f of film ) {
+    var link = f.querySelector( '.poster > a' ).href;
     link = new ModuleRequest( link, 'get', emptyKeyValue, null );
-    var rat = s.querySelector( '.poster .rating' ).textContent.trim( );
-    var hum = new Data( image, '', '', title, rat, '', '', false, link );
-    trending.push( hum );
+    console.log( link );
+    var image = f.querySelector( '.poster > img' ).src;
+    image = new ModuleRequest( image, 'get', emptyKeyValue, null );
+    var title = f.querySelector( '.poster > img' ).alt;
+    var quali = f.querySelector( 'span' ).textContent;
+    var dat = f.querySelector( '.data span' ).textContent.trim( );
+    var fil = new Data( image, title, '', dat, quali, '', '', false, link );
+    donnes1.push( fil );
 }
-output.push( new Output( CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none, new Section( 'Trending :', true ), null, trending ) );
+var donnes2 = [ ];
+var chercher = document.querySelectorAll( '.items.normal' )[ 1 ];
+var serie = chercher.querySelectorAll( 'article' );
+for ( s of serie ) {
+    var link = s.querySelector( '.poster > a' ).href;
+    link = new ModuleRequest( link, 'get', emptyKeyValue, null );
+    var image = s.querySelector( '.poster > img' ).src;
+    image = new ModuleRequest( image, 'get', emptyKeyValue, null );
+    var title = s.querySelector( '.poster > img' ).alt;
+    var dat = s.querySelector( '.data span' ).textContent.trim( );
+    var ser = new Data( image, title, '', dat, '', '', '', false, link );
+    donnes2.push( ser );
+}
+output.push( new Output( CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'Latest Movies Added :', true ), null, donnes1 ) );
+output.push( new Output( CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'New Series Updated :', true ), null, donnes2 ) );
 let MainPageObject = new MainPage( new ModuleRequest( 'https://spacemov.site/', 'get', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false, '' ), output );
 var finalJson = JSON.stringify( MainPageObject );
 savedData.innerHTML = finalJson;
