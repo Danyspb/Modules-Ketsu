@@ -222,6 +222,6 @@ for ( s of serie ) {
 }
 output.push( new Output( CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'Latest Movies Added :', true ), null, donnes1 ) );
 output.push( new Output( CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'New Series Updated :', true ), null, donnes2 ) );
-let MainPageObject = new MainPage( new ModuleRequest( 'https://spacemov.site/', 'get', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false, '' ), output );
+let MainPageObject = new MainPage( new ModuleRequest( '', 'get', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false, '' ), output );
 var finalJson = JSON.stringify( MainPageObject );
 savedData.innerHTML = finalJson;
