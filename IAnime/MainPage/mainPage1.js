@@ -226,7 +226,7 @@ const DefaultLayouts = {
    var urlmodi =`https://www.ianimes.cc/listing2.php?affichage=${nump}&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9`;
    const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
    var lien = new ModuleRequest('https://bilnaa.github.io/main/','get', emptyKeyValue, null);
-   var contact = new Data(rien, 'Vous pouvez parcourir la liste des films de façon aléatoire en actualisant la page acceuil .Pour faire cela, vous devez tirer du haut vers le bas la page acceuil.\nVous pouvez ajouter des modules en cliquant sur ce texte.\nAllez bon visionnage 😉.\nDanyspb','','','','','',false,lien,false);
+   var contact = new Data(rien, 'Vous pouvez parcourir la liste des films et des animes de façon aléatoire en actualisant la page acceuil .Pour faire cela, vous devez tirer du haut vers le bas la page acceuil.\nVous pouvez ajouter des modules en cliquant sur ce texte.\nAllez bon visionnage 😉.\nDanyspb','','','','','',false,lien,false);
 
    var cherch = document.querySelectorAll('#showcase-holder .showcase .showcase-slide');
    for (r of cherch){
@@ -246,4 +246,4 @@ const DefaultLayouts = {
    output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered, new Section('', true), layout1, [contact]));
    let MainPageObject = new MainPage(new ModuleRequest(urlmodi,'get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
    var finalJson = JSON.stringify(MainPageObject);
-   savedData.innerHTML = finalJson; 
+   savedData.innerHTML = finalJson;  
