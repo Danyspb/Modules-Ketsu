@@ -193,6 +193,13 @@ var parsedJson = JSON.parse( savedData.innerHTML );
 let output = parsedJson.output;
 let emptyKeyValue = [ new KeyValue( 'referer', parsedJson.request.url ) ];
 
+let nextRequestHeaders = [new KeyValue('referer', parsedJson.request.url)];
+nextRequestHeaders.push(new KeyValue('accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'));
+nextRequestHeaders.push(new KeyValue('accept-encoding', 'gzip, deflate, br'));
+nextRequestHeaders.push(new KeyValue('accept-language', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7'));
+nextRequestHeaders.push(new KeyValue('content-type','application/x-www-form-urlencoded'))
+let nextRequest = new ModuleRequest( 'https://spacemov.site/trending/', 'post', nextRequestHeaders, null);
+
 var donnes1 = [ ];
 var check = document.querySelectorAll( '.items.normal' )[ 0 ];
 var film = check.querySelectorAll( 'article' );
@@ -226,3 +233,4 @@ output.push( new Output( CellDesings.normal1, Orientation.horizontal, DefaultLay
 let MainPageObject = new MainPage( nextRequest, new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false, '' ), output );
 var finalJson = JSON.stringify( MainPageObject );
 savedData.innerHTML = finalJson;
+ 
