@@ -213,7 +213,7 @@ const DefaultLayouts = {
    var parsedJson = JSON.parse(savedData.innerHTML);
    var donnes = [];
    let output = [];
-   let emptyKeyValue = [new KeyValue('referer','https://www.ianimes.org/404.html')];
+   let emptyKeyValue = [new KeyValue('','')];
    var page  = [
        'Xdf789POGg45rrty','Wqs418Rtbsdfg7987ds','QQo447FFtxvxw7987','Qxc108FGkpodhjccjv','SpS891Ntpztzret87ty',
        'BoR851UkN56456uui','Xod038Fbzfghfdh87df','ADs480FvP01121j','ApG097Bgtzrte787dfg','Wup331BgFuytt788o', 
@@ -223,10 +223,10 @@ const DefaultLayouts = {
        'Rij126Prtezrt5454sdfg'
    ];
    var nump = page[Math.floor(Math.random() * page.length)];
-   var urlmodi =`https://www.ianimes.org/listing2.php?affichage=${nump}&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9`;
+   var urlmodi =`https://www.ianimes.cc/listing2.php?affichage=${nump}&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9`;
    const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
    var lien = new ModuleRequest('https://bilnaa.github.io/main/','get', emptyKeyValue, null);
-   var contact = new Data(rien, 'Vous pouvez parcourir la liste des films de façon aléatoire en actualisant la page acceuil .Pour faire cela, vous devez tirer du haut vers le bas la page acceuil.\\nVous pouvez ajouter des modules en cliquant sur ce texte.\\nAllez bon visionnage 😉.\\nDanyspb','','','','','',false,lien,false);
+   var contact = new Data(rien, 'Vous pouvez parcourir la liste des films de façon aléatoire en actualisant la page acceuil .Pour faire cela, vous devez tirer du haut vers le bas la page acceuil.\nVous pouvez ajouter des modules en cliquant sur ce texte.\nAllez bon visionnage 😉.\nDanyspb','','','','','',false,lien,false);
 
    var cherch = document.querySelectorAll('#showcase-holder .showcase .showcase-slide');
    for (r of cherch){
@@ -246,4 +246,4 @@ const DefaultLayouts = {
    output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered, new Section('', true), layout1, [contact]));
    let MainPageObject = new MainPage(new ModuleRequest(urlmodi,'get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
    var finalJson = JSON.stringify(MainPageObject);
-   savedData.innerHTML = finalJson;
+   savedData.innerHTML = finalJson; 
