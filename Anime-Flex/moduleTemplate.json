@@ -6,7 +6,7 @@
         "developer": "Danyspb4ever",
         "moduleID": "142587964315464541436",
         "moduleImage": "https://i.postimg.cc/j2v9xxn6/fix.png",
-        "moduleVersion": 1.69,
+        "moduleVersion": 1.7,
         "moduleLenguage": "FR",
         "moduleType": "Video",
         "baseURL": "https://anime-flix.net/",
@@ -367,7 +367,7 @@
     }],
     "search": [{
         "request": {
-            "url": "https://anime-flix.net/page/<page>/?s=<searched>",
+            "url": "https://anime-flix.in/page/<page>/?s=<searched>",
             "method": "get",
             "headers": [{
                 "key": "",
