@@ -10,7 +10,7 @@
         "moduleLenguage": "FR",
         "moduleType": "Image",
         "baseURL": "https://crunchyscan.fr/",
-        "moduleDeveloperSite": "",
+        "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/CrunchyScan",
         "UpdateSite": "",
         "preferedServer": "",
         "preferedDownloadServer": "",
