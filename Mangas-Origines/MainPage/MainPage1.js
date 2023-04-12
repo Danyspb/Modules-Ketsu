@@ -228,6 +228,7 @@ for (r of recent) {
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
     sortie1.push(new Data(image, title, '', '', '', '', '', false, link));
 }
+
 let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10), new Size(0, 0), 0, 0);
 let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10), new Size(0, 0), 0, 0);
 output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Populaire :', true), null, result));
