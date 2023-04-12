@@ -79,42 +79,42 @@ const Orientation = {
     vertical: 'vertical'
 };
 
-function MainPage(request, extra, javascriptConfig, output) {
+function MainPage ( request, extra, javascriptConfig, output ) {
     this.request = request;
     this.extra = extra;
     this.javascriptConfig = javascriptConfig;
     this.output = output;
 }
 
-function ModuleRequest(url, method, headers, httpBody) {
+function ModuleRequest ( url, method, headers, httpBody ) {
     this.url = url;
     this.method = method;
     this.headers = headers;
     this.httpBody = httpBody;
 }
 
-function Extra(commands, extraInfo) {
+function Extra ( commands, extraInfo ) {
     this.commands = commands;
     this.extraInfo = extraInfo;
 }
 
-function Commands(commandName, params) {
+function Commands ( commandName, params ) {
     this.commandName = commandName;
     this.params = params;
 }
 
-function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
+function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {
     this.removeJavascript = removeJavascript;
     this.loadInWebView = loadInWebView;
     this.javaScript = javaScript;
 }
 
-function KeyValue(key, value) {
+function KeyValue ( key, value ) {
     this.key = key;
     this.value = value;
 }
 
-function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) {
+function Output ( cellDesing, orientation, defaultLayout, paging, section, layout, data ) {
     this.cellDesing = cellDesing;
     this.orientation = orientation;
     this.defaultLayout = defaultLayout;
@@ -124,13 +124,12 @@ function Output(cellDesing, orientation, defaultLayout, paging, section, layout,
     this.data = data;
 }
 
-function Section(sectionName, separator) {
+function Section ( sectionName, separator ) {
     this.sectionName = sectionName;
     this.separator = separator;
 }
 
-function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight,
-    heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
+function Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing ) {
     this.insets = insets;
     this.visibleCellsWidthS = visibleCellsWidthS;
     this.visibleCellsWidthM = visibleCellsWidthM;
@@ -144,25 +143,25 @@ function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidt
     this.verticalSpacing = verticalSpacing;
 }
 
-function Insets(top, bottom, left, right) {
+function Insets ( top, bottom, left, right ) {
     this.top = top;
     this.bottom = bottom;
     this.left = left;
     this.right = right;
 }
 
-function Size(width, height) {
+function Size ( width, height ) {
     this.width = width;
     this.height = height;
 }
 
-function Ratio(inRelation, number1, number2) {
+function Ratio ( inRelation, number1, number2 ) {
     this.inRelation = inRelation;
     this.number1 = number1;
     this.number2 = number2;
 }
 
-function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) {
+function Data ( image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView ) {
     this.image = image;
     this.title = title;
     this.description = description;
@@ -175,42 +174,39 @@ function Data(image, title, description, field1, field2, field3, field4, isChapt
     this.openInWebView = openInWebView;
 }
 
-function quickData(link, image, title, field1) {
-    return new Data(image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link);
+function quickData ( link, image, title, field1 ) {
+    return new Data( image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link );
 }
 
-function shuffle(a) {
+function shuffle ( a ) {
     var j, x, i;
-    for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = a[i];
-        a[i] = a[j];
-        a[j] = x;
+    for ( i = a.length - 1; i > 0; i-- ) {
+            j = Math.floor( Math.random( ) * ( i + 1 ) );
+            x = a[ i ];
+            a[ i ] = a[ j ];
+            a[ j ] = x;
     }
     return a;
 }
-var savedData = document.getElementById('ketsu-final-data');
-var parsedJson = JSON.parse(savedData.innerHTML);
+var savedData = document.getElementById( 'ketsu-final-data' );
+var parsedJson = JSON.parse( savedData.innerHTML );
 let output = parsedJson.output;
-let emptyKeyValue = [new KeyValue('', '')];
-
-var nump = Math.floor(Math.random()*(14)+1);
-var urli = `https://anime-flix.net/films/page/${nump}/`;
-
-let Serie = [];
-var check = document.querySelectorAll('#archive-content > article');
-for (ch of check) {
-    var link = ch.querySelector('.poster > a').href;
-    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-    var image = ch.querySelector('.poster > img').src;
-    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    var title = ch.querySelector('.poster > img').alt;
-    var annee = ch.querySelector('span').textContent;
-    var donnes = new Data(image, title,'', annee, '', '', '', false, link);
-    Serie.push(donnes);
+let emptyKeyValue = [ new KeyValue( 'referer', parsedJson.request.url ) ];
+var nump = Math.floor( Math.random( ) * ( 14 ) + 1 );
+var urli = `https://anime-flix.in/films/page/${nump}/`;
+let Serie = [ ];
+var check = document.querySelectorAll( '#archive-content > article' );
+for ( ch of check ) {
+    var link = ch.querySelector( '.poster > a' ).href;
+    link = new ModuleRequest( link, 'get', emptyKeyValue, null );
+    var image = ch.querySelector( '.poster > img' ).src;
+    image = new ModuleRequest( image, 'get', emptyKeyValue, null );
+    var title = ch.querySelector( '.poster > img' ).alt;
+    var annee = ch.querySelector( 'span' ).textContent;
+    var donnes = new Data( image, title, '', annee, '', '', '', false, link );
+    Serie.push( donnes );
 }
-output.push(new Output(CellDesings.normal7, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Séries', true), null, Serie));
-let MainPageObject = new MainPage(new ModuleRequest(urli, 'get', emptyKeyValue, null),
-new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
-var finalJson = JSON.stringify(MainPageObject);
+output.push( new Output( CellDesings.normal7, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'Séries', true ), null, Serie ) );
+let MainPageObject = new MainPage( new ModuleRequest( urli, 'get', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false, '' ), output );
+var finalJson = JSON.stringify( MainPageObject );
 savedData.innerHTML = finalJson;

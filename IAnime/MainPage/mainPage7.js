@@ -1,3 +1,4 @@
+
 const DefaultLayouts = {
     ultraWideFull: 'ultraWideFull',
     ultraWide: 'ultraWide',
@@ -79,42 +80,42 @@ const Orientation = {
     vertical: 'vertical'
 };
 
-function MainPage ( request, extra, javascriptConfig, output ) {
+function MainPage(request, extra, javascriptConfig, output) {
     this.request = request;
     this.extra = extra;
     this.javascriptConfig = javascriptConfig;
     this.output = output;
 }
 
-function ModuleRequest ( url, method, headers, httpBody ) {
+function ModuleRequest(url, method, headers, httpBody) {
     this.url = url;
     this.method = method;
     this.headers = headers;
     this.httpBody = httpBody;
 }
 
-function Extra ( commands, extraInfo ) {
+function Extra(commands, extraInfo) {
     this.commands = commands;
     this.extraInfo = extraInfo;
 }
 
-function Commands ( commandName, params ) {
+function Commands(commandName, params) {
     this.commandName = commandName;
     this.params = params;
 }
 
-function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {
+function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
     this.removeJavascript = removeJavascript;
     this.loadInWebView = loadInWebView;
     this.javaScript = javaScript;
 }
 
-function KeyValue ( key, value ) {
+function KeyValue(key, value) {
     this.key = key;
     this.value = value;
 }
 
-function Output ( cellDesing, orientation, defaultLayout, paging, section, layout, data ) {
+function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) {
     this.cellDesing = cellDesing;
     this.orientation = orientation;
     this.defaultLayout = defaultLayout;
@@ -124,12 +125,13 @@ function Output ( cellDesing, orientation, defaultLayout, paging, section, layou
     this.data = data;
 }
 
-function Section ( sectionName, separator ) {
+function Section(sectionName, separator) {
     this.sectionName = sectionName;
     this.separator = separator;
 }
 
-function Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing ) {
+function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight,
+    heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
     this.insets = insets;
     this.visibleCellsWidthS = visibleCellsWidthS;
     this.visibleCellsWidthM = visibleCellsWidthM;
@@ -143,25 +145,25 @@ function Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWi
     this.verticalSpacing = verticalSpacing;
 }
 
-function Insets ( top, bottom, left, right ) {
+function Insets(top, bottom, left, right) {
     this.top = top;
     this.bottom = bottom;
     this.left = left;
     this.right = right;
 }
 
-function Size ( width, height ) {
+function Size(width, height) {
     this.width = width;
     this.height = height;
 }
 
-function Ratio ( inRelation, number1, number2 ) {
+function Ratio(inRelation, number1, number2) {
     this.inRelation = inRelation;
     this.number1 = number1;
     this.number2 = number2;
 }
 
-function Data ( image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView ) {
+function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) {
     this.image = image;
     this.title = title;
     this.description = description;
@@ -174,63 +176,46 @@ function Data ( image, title, description, field1, field2, field3, field4, isCha
     this.openInWebView = openInWebView;
 }
 
-function quickData ( link, image, title, field1 ) {
-    return new Data( image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link );
+function quickData(link, image, title, field1) {
+    return new Data(image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link);
 }
 
-function shuffle ( a ) {
+function shuffle(a) {
     var j, x, i;
-    for ( i = a.length - 1; i > 0; i-- ) {
-            j = Math.floor( Math.random( ) * ( i + 1 ) );
-            x = a[ i ];
-            a[ i ] = a[ j ];
-            a[ j ] = x;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
     }
     return a;
 }
-var savedData = document.getElementById( 'ketsu-final-data' );
-var parsedJson = JSON.parse( savedData.innerHTML );
+var savedData = document.getElementById('ketsu-final-data');
+var parsedJson = JSON.parse(savedData.innerHTML);
 let output = parsedJson.output;
-let emptyKeyValue = [ new KeyValue( 'referer', parsedJson.request.url ) ];
-
-let nextRequestHeaders = [new KeyValue('referer', parsedJson.request.url)];
-nextRequestHeaders.push(new KeyValue('accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'));
-nextRequestHeaders.push(new KeyValue('accept-encoding', 'gzip, deflate, br'));
-nextRequestHeaders.push(new KeyValue('accept-language', 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7'));
-nextRequestHeaders.push(new KeyValue('content-type','application/x-www-form-urlencoded'))
-let nextRequest = new ModuleRequest( 'https://spacemov.site/trending/', 'post', nextRequestHeaders, null);
-
-var donnes1 = [ ];
-var check = document.querySelectorAll( '.items.normal' )[ 0 ];
-var film = check.querySelectorAll( 'article' );
-for ( f of film ) {
-    var link = f.querySelector( '.poster > a' ).href;
-    link = new ModuleRequest( link, 'get', emptyKeyValue, null );
-    console.log( link );
-    var image = f.querySelector( '.poster > img' ).src;
-    image = new ModuleRequest( image, 'get', emptyKeyValue, null );
-    var title = f.querySelector( '.poster > img' ).alt;
-    var quali = f.querySelector( 'span' ).textContent;
-    var dat = f.querySelector( '.data span' ).textContent.trim( );
-    var fil = new Data( image, title, '', dat, quali, '', '', false, link );
-    donnes1.push( fil );
+let emptyKeyValue = [new KeyValue('referer','https://www.ianimes.org/index.php')];
+var inf = [];
+var grave = document.querySelectorAll('#content > div > center:nth-child(7) table table');
+for (gr of grave) {
+    var mg = gr.querySelector('tbody tr:nth-child(2) td center div').style.backgroundImage.substr(5);
+    var image = mg.split(')')[0].trim().replace('\"', '');
+    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+    title = gr.querySelector('tbody tr:nth-child(2) td center div a').title.trim();
+    var link = gr.querySelector('tbody tr:nth-child(2) td center div a').href;
+    var type = gr.querySelector('tr:nth-child(3) td:nth-child(2) headline14 center').textContent.trim();
+    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+    inf.push(new Data(image, title, '', '', type, '', '', false, link));
 }
-var donnes2 = [ ];
-var chercher = document.querySelectorAll( '.items.normal' )[ 1 ];
-var serie = chercher.querySelectorAll( 'article' );
-for ( s of serie ) {
-    var link = s.querySelector( '.poster > a' ).href;
-    link = new ModuleRequest( link, 'get', emptyKeyValue, null );
-    var image = s.querySelector( '.poster > img' ).src;
-    image = new ModuleRequest( image, 'get', emptyKeyValue, null );
-    var title = s.querySelector( '.poster > img' ).alt;
-    var dat = s.querySelector( '.data span' ).textContent.trim( );
-    var ser = new Data( image, title, '', dat, '', '', '', false, link );
-    donnes2.push( ser );
-}
-output.push( new Output( CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'Latest Movies Added :', true ), null, donnes1 ) );
-output.push( new Output( CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'New Series Updated :', true ), null, donnes2 ) );
-let MainPageObject = new MainPage( nextRequest, new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false, '' ), output );
-var finalJson = JSON.stringify( MainPageObject );
+var result = inf.reduce((unique, o) => {
+    if (!unique.some(obj => obj.title === o.title && obj.field2 === o.field2)) {
+        unique.push(o);
+    }
+    return unique;
+}, []);
+output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging
+    .leading, new Section('Drama :', true), null, result));
+let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue,
+    null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true,
+    false, ''), output);
+var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
- 

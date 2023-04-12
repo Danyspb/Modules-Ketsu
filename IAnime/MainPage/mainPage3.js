@@ -1,4 +1,4 @@
-
+ 
   const DefaultLayouts = {
     ultraWideFull: 'ultraWideFull',
     ultraWide: 'ultraWide',
@@ -193,7 +193,7 @@
   var savedData = document.getElementById('ketsu-final-data');
   var parsedJson = JSON.parse(savedData.innerHTML);
   let output = parsedJson.output;
-  let emptyKeyValue = [new KeyValue('referer','https://www.ianimes.org/index.php')];
+  let emptyKeyValue = [new KeyValue('','')];
   var dat = [];
   var donnes = [];
   var rec = document.querySelectorAll('#content > div > center:nth-child(7) > table > tbody > tr > td');
@@ -216,4 +216,4 @@
       null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''),
     output);
   var finalJson = JSON.stringify(MainPageObject);
-  savedData.innerHTML = finalJson;
+  savedData.innerHTML = finalJson; 
