@@ -11,7 +11,7 @@
         "moduleType": "Image",
         "baseURL": "https://crunchyscan.fr/",
         "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/CrunchyScan",
-        "UpdateSite": "",
+        "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/CrunchyScan/moduleTemplate.json",
         "preferedServer": "",
         "preferedDownloadServer": "",
         "blackListed": [""],
