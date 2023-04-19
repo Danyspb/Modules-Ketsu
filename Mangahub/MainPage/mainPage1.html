@@ -23690,7 +23690,7 @@ for( d of donn){
 }
  
 
-
+output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', false), null, sortie));
 let mainPageObject = new MainPage( new ModuleRequest( '', 'get', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false), output );
 var finalJson = JSON.stringify( mainPageObject );
 savedData.innerHTML = finalJson;
