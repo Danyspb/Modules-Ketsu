@@ -23678,6 +23678,7 @@ var parsedJson = JSON.parse( savedData.innerHTML );
 let emptyKeyValue = [ new KeyValue( '', '' ) ];
 let output = [ ];
 let sortie = [];
+let sortie1 = [];
 
 var donn = document.querySelectorAll('.manga-slide');
 for( d of donn){
@@ -23688,9 +23689,18 @@ for( d of donn){
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
     sortie.push(new Data(image, title, 'Popular Update', '', '', '', '', false, link));
 }
- 
+var hot = document.querySelectorAll('._11E7v .media');
+for (h of hot){
+    let image = h.querySelector('.media-left a img').src;
+    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+    let link = h.querySelector('.media-left a').href;
+    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+    let title = h.querySelector('.media-body .text-secondary').textContent;
+    sortie1.push(new Data(image, title, '', '', '', '', '', false, link));
+}
 
 output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', false), null, sortie));
+output.push(new Output(CellDesings.normal7, Orientation.horizontal, DefaultLayouts.longDoublets, Paging.leading, new Section('Popular Mangas :', true), null, sortie1));
 let mainPageObject = new MainPage( new ModuleRequest( '', 'get', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false), output );
 var finalJson = JSON.stringify( mainPageObject );
 savedData.innerHTML = finalJson;
