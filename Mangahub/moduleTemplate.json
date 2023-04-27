@@ -6,7 +6,7 @@
         "developer": "Danyspb4ever",
         "moduleID": "463123489749541",
         "moduleImage": "https://mangahub.io/logo-small.png",
-        "moduleVersion": 1.15,
+        "moduleVersion": 1.16,
         "moduleLenguage": "ENG",
         "moduleType": "Image",
         "baseURL": "https://mangahub.io/",
@@ -262,7 +262,7 @@
     }],
     "search": [{
         "request": {
-            "url": "https://mangahub.io/search?q=<searched>",
+            "url": "https://mangahub.io/search?q=solo",
             "method": "get",
             "headers": [{
                 "key": "",
@@ -364,16 +364,17 @@
             },
             "cellsHidden": false,
             "openedMenu": "Javascript",
-            "javascriptEditorScroll": 232
+            "javascriptEditorScroll": 298
         }
     }],
     "info": [{
         "request": {
-            "url": "",
+            "url": "https://mangahub.io/manga/komi-san-wa-komyushou-desu",
             "method": "get",
             "headers": [{
                 "key": "",
-                "value": ""
+                "value": "",
+                "moduleCreatorHeaderisActive": true
             }]
         },
         "extra": {
@@ -392,7 +393,7 @@
         "javascriptConfig": {
             "removeJavascript": true,
             "loadInWebView": false,
-            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */   \n\n// SCROLL TO LINE 100 TO START CODING.\n\n\n/**\n * @param {ModuleRequest} request\n * @param {Extra} extra  \n * @param {JavascriptConfig} javascriptConfig \n * @param {Output} output \n */\nfunction Info ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n/**\n * @param {string} url\n * @param {string} method  \n * @param {KeyValue[]} headers \n * @param {string} [httpBody] \n */\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n/**\n * @param {Commands[]} commands\n * @param {KeyValue[]} extraInfo \n */\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n/**\n * @param {string} commandName\n * @param {KeyValue[]} params \n */\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n/**\n * @param {boolean} removeJavascript\n * @param {boolean} loadInWebView \n\n*/\nfunction JavascriptConfig ( removeJavascript, loadInWebView ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = \"\";\n}\n/**\n * @param {string} key\n * @param {string} value \n*/\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n/**\n * @param {string} chapName\n * @param {ModuleRequest} link\n* @param {boolean} openInWebView\n */\nfunction Chapter ( chapName, link, openInWebView ) {\n        this.chapName = chapName;\n        this.link = link;\n        this.openInWebView = openInWebView;\n}\n/**\n * @param {ModuleRequest} image\n * @param {ModuleRequest} link -This needs to be the url of the first request. If you only have one requests you can do parsedJson.request\n * @param {string} title\n * @param {string} description\n * @param {string[]} genres\n * @param {string} field1\n * @param {string} field2\n * @param {string} field3\n * @param {string} field4\n * @param {Chapter[]} chapters\n */\nfunction Output ( image, title, link, description, genres, field1, field2, field3, field4, chapters ) {\n        this.image = image;\n        this.link = link;\n        this.title = title;\n        this.description = description;\n        this.genres = genres;\n        this.field1 = field1;\n        this.field2 = field2;\n        this.field3 = field3;\n        this.field4 = field4;\n        this.chapters = chapters;\n}\n\n/*\nCODE STARTS HERE: \n\n- What you need to do is to create a Info Object and save it as a json string on the div with the id: ketsu-final-data, to be more precise the one saved on the variable called savedData below this comment.\n\n- Most of the code is already done, you just need to fill the output variable with an Output object.\n*/\n\n\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nvar emptyKeyValue = [ new KeyValue( '', '' ) ];\nvar output;  // type : Output\n\n\n/*\n// This is an example of code, if you uncomment this and execute it the data needed will be filled and it will display Info page completed on the KETSU app.\n\noutput = new Output(\n        new ModuleRequest('https://d1fdloi71mui9q.cloudfront.net/1JBIg7XxQ3WqZ8AAZPiz_GydL9KJ3v5AKUN1B','GET',[],undefined),\n        'This is the title', \n        parsedJson.request,\n        'This is the description',\n        ['genre','another one'],\n        \"field 1\",\n        'field2',\n        'field 3',\n        'field 4',\n        [new Chapter('Chapter example',new ModuleRequest('','GET',[],undefined),false)])\n*/\n\nlet infoPageObject = new Info( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( false, false),output );\nvar finalJson = JSON.stringify( infoPageObject );\nsavedData.innerHTML = finalJson;\n   /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ try {\n\n    /* JAVASCRIPT STARTS */  \n\n// SCROLL TO LINE 100 TO START CODING.\n\n\n/**\n* @param {ModuleRequest} request\n* @param {Extra} extra  \n* @param {JavascriptConfig} javascriptConfig \n* @param {Output} output \n*/\nfunction Info ( request, extra, javascriptConfig, output ) {\nthis.request = request;\nthis.extra = extra;\nthis.javascriptConfig = javascriptConfig;\nthis.output = output;\n}\n/**\n* @param {string} url\n* @param {string} method  \n* @param {KeyValue[]} headers \n* @param {string} [httpBody] \n*/\nfunction ModuleRequest ( url, method, headers, httpBody ) {\nthis.url = url;\nthis.method = method;\nthis.headers = headers;\nthis.httpBody = httpBody;\n}\n/**\n* @param {Commands[]} commands\n* @param {KeyValue[]} extraInfo \n*/\nfunction Extra ( commands, extraInfo ) {\nthis.commands = commands;\nthis.extraInfo = extraInfo;\n}\n/**\n* @param {string} commandName\n* @param {KeyValue[]} params \n*/\nfunction Commands ( commandName, params ) {\nthis.commandName = commandName;\nthis.params = params;\n}\n/**\n* @param {boolean} removeJavascript\n* @param {boolean} loadInWebView \n\n*/\nfunction JavascriptConfig ( removeJavascript, loadInWebView ) {\nthis.removeJavascript = removeJavascript;\nthis.loadInWebView = loadInWebView;\nthis.javaScript = \"\";\n}\n/**\n* @param {string} key\n* @param {string} value \n*/\nfunction KeyValue ( key, value ) {\nthis.key = key;\nthis.value = value;\n}\n/**\n* @param {string} chapName\n* @param {ModuleRequest} link\n* @param {boolean} openInWebView\n*/\nfunction Chapter ( chapName, link, openInWebView ) {\nthis.chapName = chapName;\nthis.link = link;\nthis.openInWebView = openInWebView;\n}\n/**\n* @param {ModuleRequest} image\n* @param {ModuleRequest} link -This needs to be the url of the first request. If you only have one requests you can do parsedJson.request\n* @param {string} title\n* @param {string} description\n* @param {string[]} genres\n* @param {string} field1\n* @param {string} field2\n* @param {string} field3\n* @param {string} field4\n* @param {Chapter[]} chapters\n*/\nfunction Output ( image, title, link, description, genres, field1, field2, field3, field4, chapters ) {\nthis.image = image;\nthis.link = link;\nthis.title = title;\nthis.description = description;\nthis.genres = genres;\nthis.field1 = field1;\nthis.field2 = field2;\nthis.field3 = field3;\nthis.field4 = field4;\nthis.chapters = chapters;\n}\n\n/*\nCODE STARTS HERE: \n\n- What you need to do is to create a Info Object and save it as a json string on the div with the id: ketsu-final-data, to be more precise the one saved on the variable called savedData below this comment.\n\n- Most of the code is already done, you just need to fill the output variable with an Output object.\n*/\n\n\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nvar emptyKeyValue = [ new KeyValue( '', '' ) ];\n\n\nvar episodes = [];\nvar type = 'empty';\nvar status = '';\nvar genres = [];\nvar desc = '';\nvar title = '';\nvar image = '';\nvar inf = document.querySelectorAll('._3owCZ.col-md-9.col-sm-8.col-xs-6 span');\nstatus = inf[5].textContent.trim();\ngenres = Array.from(document.querySelectorAll('._3Czbn a')).map(o=>o.textContent);\ndesc = document.querySelector('.ZyMp7').textContent.trim();\ntitle = document.querySelector('._3xnDj').textContent.trim();\nimage = document.querySelector('._4RcEi.col-md-3.col-sm-4.col-xs-6 img').src;\nimage = new ModuleRequest(image,'get',emptyKeyValue,null);\nvar dats = document.querySelectorAll('.tab-content ul li');\nfor (d of dats){\nvar chap = 'Chapter '+ d.querySelector('.text-secondary._3D1SJ').textContent.replace('#','').trim();\nvar link = d.querySelector('._3pfyN').href;\nlet ok = new Chapter(chap, new ModuleRequest(link, 'get', emptyKeyValue, null), false);\nepisodes.push(ok);\n}\n\nlet infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''),\nnew Output(image, title, parsedJson.request, desc, genres, status,'Manga', type, 'Eps: '  + episodes.length, episodes.reverse()));\nvar finalJson = JSON.stringify(infoPageObject);\nsavedData.innerHTML = finalJson;\n/* JAVASCRIPT ENDS */\n\n} catch (e) {\n    console.error(e.message);\n\n    if (typeof KETSU_ASYNC !== 'undefined') {\n        window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n    }\n\n} /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
         },
         "output": {
             "image": {
@@ -441,7 +442,8 @@
             "options": {
                 "name": "Request"
             },
-            "cellsHidden": false
+            "cellsHidden": false,
+            "openedMenu": "Javascript"
         }
     }],
     "chapters": [{
@@ -789,7 +791,7 @@
         }
     }],
     "moduleCreatorGlobalOptions": {
-        "selected": "moduleCreatorIdtJFGteUUVKgjxrxuKGjx",
+        "selected": "moduleCreatorIdBmOBNGKEsOEHVkrdcuGG",
         "notesData": {
             "openedNotes": [],
             "activeNote": "oFwjzvDpdfxlaKQrGUwc",
