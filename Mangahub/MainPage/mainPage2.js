@@ -286,7 +286,7 @@ CODE STARTS HERE:
 var savedData = document.getElementById( 'ketsu-final-data' );
 var parsedJson = JSON.parse( savedData.innerHTML );
 let emptyKeyValue = [ new KeyValue( '', '' ) ];
-let output = [ ];
+let output = parsedJson.output;
 let sortie3 = [];
 
 let tou = document.querySelectorAll('.media-manga.media');
