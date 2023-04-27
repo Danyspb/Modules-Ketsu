@@ -262,7 +262,7 @@
     }],
     "search": [{
         "request": {
-            "url": "https://mangahub.io/search?q=solo",
+            "url": "https://mangahub.io/search?q=<searched>",
             "method": "get",
             "headers": [{
                 "key": "",
