@@ -1,0 +1,978 @@
+{
+    "moduleInfo": {
+        "moduleName": "MyKDrama",
+        "moduleInitials": "MKD",
+        "moduleDesc": "Un module pour regarder des Dramas Coreen en Vostfr",
+        "developer": "Danyspb4ever",
+        "moduleID": "13011611324133",
+        "moduleImage": "https://i.postimg.cc/dt5zN85t/KDramafin.png",
+        "moduleVersion": 1.17,
+        "moduleLenguage": "FR",
+        "moduleType": "Video",
+        "baseURL": "https://mykdrama.co/",
+        "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/MyKDrama",
+        "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/MyKDrama/moduleTemplate.json",
+        "preferedServer": "",
+        "preferedDownloadServer": "",
+        "blackListed": [""],
+        "moduleCreatorIdUrErPESQtALgXTRBldGZ": {
+            "path": "ugeSi",
+            "id": "moduleInfosection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Module Info",
+                "listName": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdfpjNwjAgxFgvADOrQhGE": {
+            "path": "dnHpo",
+            "id": "moduleInfocell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Parameters"
+            },
+            "cellsHidden": false
+        }
+    },
+    "global": {
+        "variables": [{
+            "key": "",
+            "value": ""
+        }],
+        "cookies": [{
+            "key": "",
+            "value": ""
+        }],
+        "headers": [{
+            "key": "",
+            "value": ""
+        }]
+    },
+    "mainPage": [{
+        "request": {
+            "url": "https://mykdrama.co/",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": ""
+            }],
+            "httpBody": null
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */   const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: '' }; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal6 : 'normal6', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11' }; const Paging = { leading : 'leading', centered : 'centered', none : '' }; const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; } function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator; } function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing; } function Insets(top, bottom, left, right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right; } function Size(width, height) { this.width = width; this.height = height; } function Ratio(inRelation, number1, number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2; } function Data(image, title, description, field1, field2, field3, field4, isChapter, link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView; } function quickData(link,image,title,field1) { return new Data(image,title,'unknown',field1,'unknown','unknown','unknown',false,link); } function shuffle(a) { var j, x, i; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; } return a; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let sortie = []; var infor = []; let emptyKeyValue = [new KeyValue('','')]; var check = document.querySelectorAll('.serieslist.pop > ul > li'); for (ch of check){ var link = ch.querySelector('.imgseries > a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); var image = ch.querySelector('.imgseries > a > img').src.split('?')[0]; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var title = ch.querySelector('.imgseries > a > img').title; var donnes = new Data(image, title,'', 'Best', 'Drama', '', '', false, link); infor.push(donnes); } sortie.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Popular Drama', true), null, infor)); let MainPageObject = new MainPage(new ModuleRequest('https://mykdrama.co/drama/?status=&type=&order=update', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), sortie); var finalJson = JSON.stringify(MainPageObject); savedData.innerHTML = finalJson; /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": [{
+            "cellDesing": "normal1",
+            "orientation": "vertical",
+            "defaultLayout": "wide",
+            "paging": "",
+            "section": {
+                "sectionName": "",
+                "separator": false
+            },
+            "layout": {
+                "insets": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                },
+                "visibleCellsWidthS": 2,
+                "visibleCellsWidthM": 2,
+                "visibleCellsWidthL": 2,
+                "visibleCellsHeight": 2,
+                "heightForVisibleCells": 400,
+                "cellSize": {
+                    "width": 300,
+                    "height": 300
+                },
+                "ratio": {
+                    "inRelation": "width",
+                    "number1": 1,
+                    "number2": 2
+                },
+                "constant": {
+                    "width": 1,
+                    "height": 2
+                },
+                "horizontalSpacing": 0,
+                "verticalSpacing": 0
+            },
+            "data": [{
+                "image": {
+                    "url": "",
+                    "method": "get",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                },
+                "title": "",
+                "description": "",
+                "field1": "",
+                "field2": "",
+                "field3": "",
+                "field4": "",
+                "openInWebView": false,
+                "isChapter": false,
+                "link": {
+                    "url": "",
+                    "method": "",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                }
+            }]
+        }],
+        "moduleCreatorIdmghCrqJkIrpmJFUTmasa": {
+            "path": "xvAeR",
+            "id": "mainPage,0cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        }
+    }, {
+        "request": {
+            "url": "",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": ""
+            }],
+            "httpBody": null
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": false,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ const DefaultLayouts = { ultraWideFull: 'ultraWideFull', ultraWide: 'ultraWide', wideFull: 'wideFull', wide: 'wide', wideStrechedFull: 'wideStrechedFull', wideStrechedFullDouble: 'WideStrechedFullDouble', wideStreched: 'wideStreched', wideStrechedDouble: 'wideStrechedDouble', wideStrechedFullList: 'wideStrechedFullList', wideStrechedList: 'wideStrechedList', doublets: 'doublets', doubletsDouble: 'doubletsDouble', doubletsFull: 'doubletsFull', doubletsFullDouble: 'doubletsFullDouble', doubletsConstant: 'doubletsConstant', doubletsDoubleConstant: 'doubletsDoubleConstant', doubletsFullConstant: 'doubletsFullConstant', doubletsFullDoubleConstant: 'doubletsFullDoubleConstant', longDoublets: 'longDoublets', longDoubletsDouble: 'longDoubletsDouble', longDoubletsFull: 'longDoubletsFull', longDoubletsFullDouble: 'longDoubletsFullDouble', longDoubletsConstant: 'longDoubletsConstant', longDoubletsDoubleConstant: 'longDoubletsDoubleConstant', longDoubletsFullConstant: 'longDoubletsFullConstant', longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant', triplets: 'triplets', tripletsDouble: 'tripletsDouble', tripletsFull: 'tripletsFull', tripletsFullDouble: 'tripletsFullDouble', tripletsConstant: 'tripletsConstant', tripletsDoubleConstant: 'tripletsDoubleConstant', tripletsFullConstant: 'tripletsFullConstant', tripletsFullDoubleConstant: 'tripletsFullDoubleConstant', longTriplets: 'longTriplets', longTripletsDouble: 'longTripletsDouble', longTripletsFull: 'longTripletsFull', longTripletsFullDouble: 'longTripletsFullDouble', longTripletsConstant: 'longTripletsConstant', longTripletsDoubleConstant: 'longTripletsDoubleConstant', longTripletsFullConstant: 'longTripletsFullConstant', longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant', none: ''};const CellDesings = { Special1: 'Special1', Special2: 'Special2', Special3: 'Special3', CELLHelperText: 'CELLHelperText', small1: 'small1', small2: 'small2', normal1: 'normal1', normal2: 'normal2', normal3: 'normal3', normal4: 'normal4', normal5: 'normal5', normal6: 'normal6', normal7: 'normal7', wide1: 'wide1', wide2: 'wide2', wide3: 'wide3', wide4: 'wide4', wide5: 'wide5', wide6: 'wide6', wide7: 'wide7', wide8: 'wide8', wide9: 'wide9', wide10: 'wide10', wide11: 'wide11'};const Paging = { leading: 'leading', centered: 'centered', none: ''};const Orientation = { horizontal: 'horizontal', vertical: 'vertical'};function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data;}function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator;}function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing;}function Insets(top, bottom, left, right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right;}function Size(width, height) { this.width = width; this.height = height;}function Ratio(inRelation, number1, number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2;}function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView;}function quickData(link, image, title, field1) { return new Data(image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link);}function shuffle(a) { var j, x, i; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; } return a;}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);let output = parsedJson.output;let emptyKeyValue = [new KeyValue('', '')];let meilleur = [];var check = document.querySelectorAll('.listupd > article');for (c of check){ var link = c.querySelector('.bsx > a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); var title = c.querySelector('.bsx > a').title; var image = c.querySelector('.bsx .limit > img').src; var inf = c.querySelector('.bsx .limit .bt > span').textContent; if(c.querySelector('.bsx .limit .bt > span').textContent.includes('Ongoing')){ var inf = 'En Cours'; }else{ var inf = 'Complete'; } image = new ModuleRequest(image, 'get', emptyKeyValue, null); var donnes = new Data(image, title,'', inf, '', '', '', false, link); meilleur.push(donnes);}output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Derniers Episodes Ajoutés', true), null, meilleur));let MainPageObject = new MainPage(new ModuleRequest('https://mykdrama.co/genres/action/', 'get', emptyKeyValue, null),new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);var finalJson = JSON.stringify(MainPageObject);savedData.innerHTML = finalJson; /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": [{
+            "cellDesing": "normal1",
+            "orientation": "vertical",
+            "defaultLayout": "wide",
+            "paging": "",
+            "section": {
+                "sectionName": "",
+                "separator": false
+            },
+            "layout": {
+                "insets": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                },
+                "visibleCellsWidthS": 2,
+                "visibleCellsWidthM": 2,
+                "visibleCellsWidthL": 2,
+                "visibleCellsHeight": 2,
+                "heightForVisibleCells": 400,
+                "cellSize": {
+                    "width": 300,
+                    "height": 300
+                },
+                "ratio": {
+                    "inRelation": "width",
+                    "number1": 1,
+                    "number2": 2
+                },
+                "constant": {
+                    "width": 1,
+                    "height": 2
+                },
+                "horizontalSpacing": 0,
+                "verticalSpacing": 0
+            },
+            "data": [{
+                "image": {
+                    "url": "",
+                    "method": "get",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                },
+                "title": "",
+                "description": "",
+                "field1": "",
+                "field2": "",
+                "field3": "",
+                "field4": "",
+                "openInWebView": false,
+                "isChapter": false,
+                "link": {
+                    "url": "",
+                    "method": "",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                }
+            }]
+        }],
+        "moduleCreatorIdtDzQqwVDyfGnrbrYvtrK": {
+            "path": "bDzBS",
+            "id": "mainPage,1cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        }
+    }, {
+        "request": {
+            "url": "",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": ""
+            }],
+            "httpBody": null
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": false,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  const DefaultLayouts = { ultraWideFull: 'ultraWideFull', ultraWide: 'ultraWide', wideFull: 'wideFull', wide: 'wide', wideStrechedFull: 'wideStrechedFull', wideStrechedFullDouble: 'WideStrechedFullDouble', wideStreched: 'wideStreched', wideStrechedDouble: 'wideStrechedDouble', wideStrechedFullList: 'wideStrechedFullList', wideStrechedList: 'wideStrechedList', doublets: 'doublets', doubletsDouble: 'doubletsDouble', doubletsFull: 'doubletsFull', doubletsFullDouble: 'doubletsFullDouble', doubletsConstant: 'doubletsConstant', doubletsDoubleConstant: 'doubletsDoubleConstant', doubletsFullConstant: 'doubletsFullConstant', doubletsFullDoubleConstant: 'doubletsFullDoubleConstant', longDoublets: 'longDoublets', longDoubletsDouble: 'longDoubletsDouble', longDoubletsFull: 'longDoubletsFull', longDoubletsFullDouble: 'longDoubletsFullDouble', longDoubletsConstant: 'longDoubletsConstant', longDoubletsDoubleConstant: 'longDoubletsDoubleConstant', longDoubletsFullConstant: 'longDoubletsFullConstant', longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant', triplets: 'triplets', tripletsDouble: 'tripletsDouble', tripletsFull: 'tripletsFull', tripletsFullDouble: 'tripletsFullDouble', tripletsConstant: 'tripletsConstant', tripletsDoubleConstant: 'tripletsDoubleConstant', tripletsFullConstant: 'tripletsFullConstant', tripletsFullDoubleConstant: 'tripletsFullDoubleConstant', longTriplets: 'longTriplets', longTripletsDouble: 'longTripletsDouble', longTripletsFull: 'longTripletsFull', longTripletsFullDouble: 'longTripletsFullDouble', longTripletsConstant: 'longTripletsConstant', longTripletsDoubleConstant: 'longTripletsDoubleConstant', longTripletsFullConstant: 'longTripletsFullConstant', longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant', none: '' }; const CellDesings = { Special1: 'Special1', Special2: 'Special2', Special3: 'Special3', CELLHelperText: 'CELLHelperText', small1: 'small1', small2: 'small2', normal1: 'normal1', normal2: 'normal2', normal3: 'normal3', normal4: 'normal4', normal5: 'normal5', normal6: 'normal6', normal7: 'normal7', wide1: 'wide1', wide2: 'wide2', wide3: 'wide3', wide4: 'wide4', wide5: 'wide5', wide6: 'wide6', wide7: 'wide7', wide8: 'wide8', wide9: 'wide9', wide10: 'wide10', wide11: 'wide11' }; const Paging = { leading: 'leading', centered: 'centered', none: '' }; const Orientation = { horizontal: 'horizontal', vertical: 'vertical' }; function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; } function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator; } function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing; } function Insets(top, bottom, left, right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right; } function Size(width, height) { this.width = width; this.height = height; } function Ratio(inRelation, number1, number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2; } function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView; } function quickData(link, image, title, field1) { return new Data(image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link); } function shuffle(a) { var j, x, i; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; } return a; }var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);let output = parsedJson.output;let emptyKeyValue = [new KeyValue('', '')];let voir = [];var check = document.querySelectorAll('.listupd > article');for (ch of check) {var link = ch.querySelector('.bsx > a').href;link = new ModuleRequest(link, 'get', emptyKeyValue, null);var title = ch.querySelector('.bsx > a').title;var image =ch.querySelector('.bsx > a .limit > img').src;image = new ModuleRequest(image, 'get', emptyKeyValue, null);if(ch.querySelector('.bsx .limit .bt > span').textContent.includes('Ongoing')){ var inf = 'En Cours'; }else{ var inf = 'Complete'; }var donnes = new Data(image, title, '', inf, '', '', '', false,link);voir.push(donnes);}output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading,new Section('Dramas Genre Action', true), null,voir));let MainPageObject = new MainPage(new ModuleRequest('', 'get',emptyKeyValue, null), new Extra([new Commands('',emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true,false, ''), output);var finalJson = JSON.stringify(MainPageObject);savedData.innerHTML = finalJson; /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": [{
+            "cellDesing": "normal1",
+            "orientation": "vertical",
+            "defaultLayout": "wide",
+            "paging": "",
+            "section": {
+                "sectionName": "",
+                "separator": false
+            },
+            "layout": {
+                "insets": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                },
+                "visibleCellsWidthS": 2,
+                "visibleCellsWidthM": 2,
+                "visibleCellsWidthL": 2,
+                "visibleCellsHeight": 2,
+                "heightForVisibleCells": 400,
+                "cellSize": {
+                    "width": 300,
+                    "height": 300
+                },
+                "ratio": {
+                    "inRelation": "width",
+                    "number1": 1,
+                    "number2": 2
+                },
+                "constant": {
+                    "width": 1,
+                    "height": 2
+                },
+                "horizontalSpacing": 0,
+                "verticalSpacing": 0
+            },
+            "data": [{
+                "image": {
+                    "url": "",
+                    "method": "get",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                },
+                "title": "",
+                "description": "",
+                "field1": "",
+                "field2": "",
+                "field3": "",
+                "field4": "",
+                "openInWebView": false,
+                "isChapter": false,
+                "link": {
+                    "url": "",
+                    "method": "",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                }
+            }]
+        }],
+        "moduleCreatorIdsyCghUMnHWkPXqxCTnAU": {
+            "path": "luSTu",
+            "id": "mainPage,2cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "search": [{
+        "request": {
+            "url": "https://mykdrama.co/page/<page>/?s=<searched>",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": ""
+            }],
+            "httpBody": null
+        },
+        "separator": "+",
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: '' }; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal6 : 'normal6', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11' }; const Paging = { leading : 'leading', centered : 'centered', none : '' }; const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function Search(request,extra,separator,javascriptConfig,output) { this.request = request; this.extra = extra; this.separator = separator; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url,method,headers,httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands,extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName,params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript,loadInWebView,javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key,value) { this.key = key; this.value = value; } function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; } function Section(sectionName,separator) { this.sectionName = sectionName; this.separator = separator; } function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing; } function Insets(top,bottom,left,right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right; } function Size(width,height) { this.width = width; this.height = height; } function Ratio(inRelation,number1,number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2; } function Data(image,title,description,field1,field2,field3,field4,isChapter,link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView; } function quickData(link,image,title,field1) { return new Data(image,title,'unknown',field1,'unknown','unknown','unknown',false,link); } function shuffle(a) { var j, x, i; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; } return a; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let output = []; let emptyKeyValue = [new KeyValue('','')]; var donnes = []; var don = document.querySelectorAll('.listupd > article'); for(d of don){ var link = d.querySelector('.bsx > a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); var title = d.querySelector('.bsx > a').title; var image = d.querySelector('.bsx > a > .limit > img ').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var status = d.querySelector('.bsx > a > .limit > .bt').textContent; donnes.push(new Data(image, '', status,title,'Drama','unknow','unknow',false, link)); } var testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11), new Size(0, 0), 10, 10); output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('', false), testLayout, donnes)); let searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output); var finalJson = JSON.stringify(searchPageObject); savedData.innerHTML = finalJson; /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": [{
+            "cellDesing": "normal1",
+            "orientation": "vertical",
+            "defaultLayout": "wide",
+            "paging": "",
+            "section": {
+                "sectionName": "",
+                "separator": false
+            },
+            "layout": {
+                "insets": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                },
+                "visibleCellsWidthS": 2,
+                "visibleCellsWidthM": 2,
+                "visibleCellsWidthL": 2,
+                "visibleCellsHeight": 2,
+                "heightForVisibleCells": 400,
+                "cellSize": {
+                    "width": 300,
+                    "height": 300
+                },
+                "ratio": {
+                    "inRelation": "width",
+                    "number1": 1,
+                    "number2": 2
+                },
+                "constant": {
+                    "width": 1,
+                    "height": 2
+                },
+                "horizontalSpacing": 0,
+                "verticalSpacing": 0
+            },
+            "data": [{
+                "image": {
+                    "url": "",
+                    "method": "get",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                },
+                "title": "",
+                "description": "",
+                "field1": "",
+                "field2": "",
+                "field3": "",
+                "field4": "",
+                "openInWebView": false,
+                "isChapter": false,
+                "link": {
+                    "url": "empty",
+                    "method": "get",
+                    "headers": [{
+                        "key": "key",
+                        "value": "value"
+                    }],
+                    "httpBody": null
+                }
+            }]
+        }],
+        "moduleCreatorIdPxNMsVSrHFJzQAmjvlIz": {
+            "path": "WlWzz",
+            "id": "search,0cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "info": [{
+        "request": {
+            "url": "https://mykdrama.co/falling-into-your-smile-episode-31-vostfr/",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": "",
+                "moduleCreatorHeaderisActive": true
+            }]
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  function Info ( request, extra, javascriptConfig, output ) {\n         this.request = request;\n         this.extra = extra;\n         this.javascriptConfig = javascriptConfig;\n         this.output = output;\n }\n\n function ModuleRequest ( url, method, headers, httpBody ) {\n         this.url = url;\n         this.method = method;\n         this.headers = headers;\n         this.httpBody = httpBody;\n }\n\n function Extra ( commands, extraInfo ) {\n         this.commands = commands;\n         this.extraInfo = extraInfo;\n }\n\n function Commands ( commandName, params ) {\n         this.commandName = commandName;\n         this.params = params;\n }\n\n function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n         this.removeJavascript = removeJavascript;\n         this.loadInWebView = loadInWebView;\n         this.javaScript = javaScript;\n }\n\n function KeyValue ( key, value ) {\n         this.key = key;\n         this.value = value;\n }\n\n function Chapter ( chapName, link, openInWebView ) {\n         this.chapName = chapName;\n         this.link = link;\n         this.openInWebView = openInWebView;\n }\n\n function Output ( image, title, link, description, genres, field1, field2, field3, field4, chapters ) {\n         this.image = image;\n         this.link = link;\n         this.title = title;\n         this.description = description;\n         this.genres = genres;\n         this.field1 = field1;\n         this.field2 = field2;\n         this.field3 = field3;\n         this.field4 = field4;\n         this.chapters = chapters;\n }\n\n function getStuff ( array, match ) {\n         for ( var x = 0; x < array.length; x++ ) {\n                 let data = array[ x ].innerText;\n                 if ( data.includes( match ) ) {\n                         return data.replace( match, '' ).trim( );\n                 }\n         }\n }\n\n function getHtmlStuff ( array, match ) {\n         for ( var x = 0; x < array.length; x++ ) {\n                 let data = array[ x ].innerText;\n                 if ( data.includes( match ) ) {\n                         return array[ x ];\n                 }\n         }\n }\n var savedData = document.getElementById( 'ketsu-final-data' );\n var parsedJson = JSON.parse( savedData.innerHTML );\n let emptyKeyValue = [ new KeyValue( '', '' ) ];\n var episodes = [ ];\n var type = 'Drama';\n var genres = [ ];\n var image = document.querySelector( '.bigcontent .thumbook .thumb > img' ).src;\n image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n var title = document.querySelector( '.bigcontent .thumbook .thumb > img' ).title;\n var desc = document.querySelector( '.entry-content > p' ).textContent.replaceAll( '\\n', '' );\n genres = Array.from( document.querySelectorAll( '.genxed > a' ) ).map( g => g.textContent.trim( ) );\n var etat = document.querySelector( '.spe > span' ).textContent;\n var status = etat.replace( 'Status: ', '' );\n var recupe = document.querySelectorAll( '.eplister > ul > li' );\n for ( r of recupe ) {\n         var epi = 'Episode' + r.querySelector( 'a > .epl-num' ).textContent.replace( '\\n', '' );\n         var link = r.querySelector( 'a' ).href;\n         var chapitre = new Chapter( epi, new ModuleRequest( link, 'get', emptyKeyValue, null ), false );\n         episodes.push( chapitre );\n }\n let infoPageObject = new Info( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( false, false, '' ), new Output( image, title, parsedJson.request, desc, genres, status, type, 'Coréen', 'Eps: ' + episodes.length, episodes.reverse( ) ) );\n var finalJson = JSON.stringify( infoPageObject );\n savedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": {
+            "image": {
+                "url": "",
+                "method": "get",
+                "headers": [{
+                    "key": "",
+                    "value": ""
+                }],
+                "httpBody": null
+            },
+            "link": {
+                "url": "",
+                "method": "get",
+                "headers": [{
+                    "key": "",
+                    "value": ""
+                }],
+                "httpBody": null
+            },
+            "title": "",
+            "description": "",
+            "genres": [""],
+            "field1": "",
+            "field2": "",
+            "field3": "",
+            "field4": "",
+            "chapters": [{
+                "chapName": "",
+                "openInWebView": false,
+                "link": {
+                    "url": "empty",
+                    "method": "get",
+                    "headers": [{
+                        "key": "key",
+                        "value": "value"
+                    }],
+                    "httpBody": null
+                }
+            }]
+        },
+        "moduleCreatorIdaSWEVYAlxQBHqJUMHbvI": {
+            "path": "vGSbk",
+            "id": "info,0cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false,
+            "openedMenu": "Javascript",
+            "javascriptEditorScroll": 73
+        }
+    }],
+    "chapters": [{
+        "request": {
+            "url": "https://mykdrama.co/falling-into-your-smile-episode-31-vostfr/",
+            "method": "get",
+            "headers": [{
+                "key": "key",
+                "value": "value",
+                "moduleCreatorHeaderisActive": true
+            }, {
+                "key": "",
+                "value": "",
+                "moduleCreatorHeaderisActive": true
+            }]
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": false,
+            "loadInWebView": true,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */   function Chapters ( request, extra, javascriptConfig, output ) {\n          this.request = request;\n          this.extra = extra;\n          this.javascriptConfig = javascriptConfig;\n          this.output = output;\n  }\n\n  function ModuleRequest ( url, method, headers, httpBody ) {\n          this.url = url;\n          this.method = method;\n          this.headers = headers;\n          this.httpBody = httpBody;\n  }\n\n  function Extra ( commands, extraInfo ) {\n          this.commands = commands;\n          this.extraInfo = extraInfo;\n  }\n\n  function Commands ( commandName, params ) {\n          this.commandName = commandName;\n          this.params = params;\n  }\n\n  function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n          this.removeJavascript = removeJavascript;\n          this.loadInWebView = loadInWebView;\n          this.javaScript = javaScript;\n  }\n\n  function KeyValue ( key, value ) {\n          this.key = key;\n          this.value = value;\n  }\n\n  function Output ( videos, images, text ) {\n          this.videos = videos;\n          this.images = images;\n          this.text = text;\n  }\n\n  function Videos ( needsResolver, rawVideo ) {\n          this.needsResolver = needsResolver;\n          this.rawVideo = rawVideo;\n  }\n\n  function NeedsResolver ( resolverIdentifier, link ) {\n          this.resolverIdentifier = resolverIdentifier;\n          this.link = link;\n  }\n\n  function RawVideo ( video ) {\n          this.video = video;\n  }\n\n  function Video ( videoQuality, videoLink ) {\n          this.videoQuality = videoQuality;\n          this.videoLink = videoLink;\n  }\n\n function getFile(url) {\n        var xhr = new XMLHttpRequest();\n        xhr.open('get', url, false);\n        xhr.send();\n        return xhr.responseText;\n    }\n\n  function Text ( text ) {\n          this.text = text;\n  }\n  var output = [ ];\n  let rec =  [];\n  var savedData = document.getElementById( 'ketsu-final-data' );\n  var parsedJson = JSON.parse( savedData.innerHTML );\n  var emptyKeyValue = [ new KeyValue( '', '' ) ];\n  var serveur = document.querySelectorAll('.mobius .mirror option');\n  for (serv of serveur){\n        if(serv.value !== \"\"){\n                rec.push(serv.value);\n        }else{\n                continue;\n        }\n  }\n  for (let i = 0; i < rec.length; i++) {\n        let url = rec[i];\n        var content = getFile(url);\n        var parser = new DOMParser();\n        var doc = parser.parseFromString(content, 'text/html');\n        var link = doc.querySelector('.video-content iframe').src;\n        output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));\n  }\n  \n  let emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );\n  var chaptersObject = new Chapters( new ModuleRequest( '', '', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, false, '' ), new Output( new Videos( output, null ), null, null ) );\n  var finalJson = JSON.stringify( chaptersObject );\n  savedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": {
+            "videos": {
+                "needsResolver": [{
+                    "resolverIdentifier": "",
+                    "link": {
+                        "url": "",
+                        "method": "get",
+                        "headers": [{
+                            "key": "key",
+                            "value": "value"
+                        }],
+                        "httpBody": null
+                    }
+                }],
+                "rawVideo": [{
+                    "video": [{
+                        "videoQuality": "",
+                        "videoLink": {
+                            "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                            "method": "get",
+                            "headers": [{
+                                "key": "key",
+                                "value": "value"
+                            }],
+                            "httpBody": null
+                        }
+                    }]
+                }]
+            },
+            "images": [{
+                "url": "empty",
+                "method": "get",
+                "headers": [{
+                    "key": "key",
+                    "value": "value"
+                }],
+                "httpBody": null
+            }],
+            "text": {
+                "text": ""
+            }
+        },
+        "moduleCreatorIdExbcUvapWzJdhxqeEyYM": {
+            "path": "SrbEP",
+            "id": "chapters,0cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false,
+            "openedMenu": "Javascript"
+        }
+    }],
+    "moduleResolvers": [{
+        "resolverInfo": {
+            "resolverName": "",
+            "nameMatches": [""],
+            "developer": "",
+            "moduleID": "",
+            "resolverVersion": 1,
+            "baseURL": "",
+            "moduleCreatorIdjViPgentclYKzLQgZWxl": {
+                "path": "nUauj",
+                "id": "moduleResolvers,0,resolverInfosection",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Resolver Parameters",
+                    "listName": "parameters"
+                },
+                "cellsHidden": false
+            },
+            "moduleCreatorIdgxnkKSlxNhBOZtOsKhZF": {
+                "path": "aaIjA",
+                "id": "moduleResolvers,0,resolverInfocell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "parameters"
+                },
+                "cellsHidden": false
+            }
+        },
+        "resolver": [{
+            "request": {
+                "url": "",
+                "method": "get",
+                "headers": [{
+                    "key": "key",
+                    "value": "value"
+                }],
+                "httpBody": null
+            },
+            "extra": {
+                "commands": [{
+                    "commandName": "",
+                    "params": [{
+                        "key": "",
+                        "value": ""
+                    }]
+                }],
+                "extraInfo": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "javascriptConfig": {
+                "removeJavascript": false,
+                "loadInWebView": false,
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            },
+            "output": {
+                "moduleID": "",
+                "video": [{
+                    "videoQuality": "720",
+                    "videoLink": {
+                        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                        "method": "get",
+                        "headers": [{
+                            "key": "key",
+                            "value": "value"
+                        }],
+                        "httpBody": null
+                    }
+                }]
+            },
+            "moduleCreatorIdNVPuqpxmaJUfwuwvnrEx": {
+                "path": "DIjPH",
+                "id": "moduleResolvers,0,resolver,0cell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Request"
+                },
+                "cellsHidden": false
+            }
+        }],
+        "moduleCreatorIdPEfMsAQLwLopIAzCEVjY": {
+            "path": "SymAw",
+            "id": "moduleResolvers,0section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Resolver"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdyUCdbsQXYXhrFKIjIMIa": {
+            "path": "resolver",
+            "id": "moduleResolvers,0,resolversection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Resolver Request",
+                "listName": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "responseCodeFunctions": [{
+        "code": 0,
+        "msgTitle": "",
+        "msgBody": "",
+        "type": "normal",
+        "functions": [{
+            "request": {
+                "url": "empty",
+                "method": "get",
+                "headers": [{
+                    "key": "key",
+                    "value": "value"
+                }],
+                "httpBody": null
+            },
+            "extra": {
+                "commands": [{
+                    "commandName": "",
+                    "params": [{
+                        "key": "",
+                        "value": ""
+                    }]
+                }],
+                "extraInfo": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "javascriptConfig": {
+                "removeJavascript": true,
+                "loadInWebView": false,
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            },
+            "moduleCreatorIdsjpStGBotLVfUBSWuhFY": {
+                "path": "lZGAf",
+                "id": "responseCodeFunctions,0,functions,0cell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Request"
+                },
+                "cellsHidden": false
+            }
+        }],
+        "moduleCreatorIdMVxWjAqYnPflUFULahUh": {
+            "path": "WSYCF",
+            "id": "responseCodeFunctions,0section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdvWrZkFOplYMcEDgzbbuI": {
+            "path": "xrZew",
+            "id": "responseCodeFunctions,0,section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function Parameters",
+                "listName": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdaPiWwCwqisHChhRLdmYu": {
+            "path": "RIWJL",
+            "id": "responseCodeFunctions,0,cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdpiPGxjXlFyytChhmrRKX": {
+            "path": "functions",
+            "id": "responseCodeFunctions,0,functionssection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function Requests",
+                "listName": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "helperFunctions": [{
+        "functionName": "example",
+        "msgTitle": "",
+        "msgBody": "",
+        "type": "normal",
+        "functions": [{
+            "request": {
+                "url": "empty",
+                "method": "get",
+                "headers": [{
+                    "key": "key",
+                    "value": "value"
+                }],
+                "httpBody": null
+            },
+            "extra": {
+                "commands": [{
+                    "commandName": "",
+                    "params": [{
+                        "key": "",
+                        "value": ""
+                    }]
+                }],
+                "extraInfo": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "javascriptConfig": {
+                "removeJavascript": true,
+                "loadInWebView": false,
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            },
+            "moduleCreatorIdRPJUSYTKWKLAIXCkPYNH": {
+                "path": "jlOxA",
+                "id": "helperFunctions,0,functions,0cell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Request"
+                },
+                "cellsHidden": false
+            }
+        }],
+        "moduleCreatorIdrSDiRQfbQwnppRZFYQah": {
+            "path": "vwoFI",
+            "id": "helperFunctions,0section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdJRYPKMIXTZNoWHQlKkSc": {
+            "path": "hbNXd",
+            "id": "helperFunctions,0,section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function Parameters",
+                "listName": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdOHzHfEqkDroBbqwyGDww": {
+            "path": "QHSXv",
+            "id": "helperFunctions,0,cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdrKawrnIcfWPuoMszpNNf": {
+            "path": "functions",
+            "id": "helperFunctions,0,functionssection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function Requests",
+                "listName": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "moduleCreatorGlobalOptions": {
+        "selected": "moduleCreatorIdExbcUvapWzJdhxqeEyYM",
+        "notesData": {
+            "openedNotes": ["oFwjzvDpdfxlaKQrGUwc"],
+            "activeNote": "oFwjzvDpdfxlaKQrGUwc",
+            "notes": {}
+        },
+        "hideViews": [],
+        "id": "jHoOwkeHEabikxG",
+        "projectName": "MyKDrama"
+    },
+    "moduleCreatorIdpuQWyPnVFVZMoFncIDpb": {
+        "path": "mainPage",
+        "id": "mainPagesection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Main Page",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdzLRflKmsZtopsdWxsGPP": {
+        "path": "search",
+        "id": "searchsection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Search Page",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdrLLpbdnBEeElIZlfGFiL": {
+        "path": "info",
+        "id": "infosection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Info Page",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdmlkAOYEViBJrZbzncwdH": {
+        "path": "chapters",
+        "id": "chapterssection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Chapters",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdysgDUydAyqVBjaXCRtXa": {
+        "path": "moduleResolvers",
+        "id": "moduleResolverssection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Resolvers",
+            "listName": "Resolver"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdbLxAoDogcraDQNoFNeBX": {
+        "path": "responseCodeFunctions",
+        "id": "responseCodeFunctionssection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Response Code Funtions",
+            "listName": "Function"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdkUaFZWyNpYFrlKoIcJla": {
+        "path": "helperFunctions",
+        "id": "helperFunctionssection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Helper Functions",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    }
+}
