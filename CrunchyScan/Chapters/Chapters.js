@@ -85,7 +85,6 @@ try {
     var commands = [new Commands('helperFunction', [new KeyValue('isCustomRequest', 'true'), new KeyValue('name', 'example')])];
     if(parsedJson.global.variables.length != 0) {
         
-        
         let images = JSON.parse(parsedJson.global.variables[1].value);
         
         for (let image of images) {
@@ -97,7 +96,7 @@ try {
     let emptyExtra = new Extra(commands, emptyKeyValue);
     var chaptersObject = new Chapters(newRequest, emptyExtra, new JavascriptConfig(false, false, ''), new Output(null, output, null), new Extra('', emptyKeyValue));
     var finalJso= JSON.stringify(chaptersObject);
-    nsavedData.innerHTML = finalJson;
+    savedData.innerHTML = finalJson;
     /* JAVASCRIPT ENDS */  
 } catch (e) {
     
