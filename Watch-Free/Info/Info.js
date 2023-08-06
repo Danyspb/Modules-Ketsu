@@ -116,11 +116,13 @@ let verife = document.querySelector('.list-media-attr .category').textContent.tr
 if(verife.includes('movie')){
     genres = Array.from(document.querySelectorAll('.text a')).map(g => g.textContent.trim());
     var image = document.querySelector('.app-player.mt-3').style.backgroundImage.match(/https.*(jpg|png|jpeg)/gm)[0];
+    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
     var title = document.querySelector('.caption-content h1').textContent;
     var duree = document.querySelectorAll('.media-attr .text')[3].textContent.trim();
     var release = document.querySelectorAll('.media-attr .text')[4].textContent.trim();
     var description = document.querySelectorAll('.media-attr .text')[5].textContent.trim();
     var link = parsedJson.request.url;
+    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
     console.log(link);
     var chapitre = new Chapter(title, new ModuleRequest(parsedJson.request.url, 'get', emptyKeyValue, null), false);
     episodes.push(chapitre);
