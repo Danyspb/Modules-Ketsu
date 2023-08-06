@@ -139,7 +139,8 @@ var emptyKeyValue = [ new KeyValue( '', '' ) ];
 let emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );
 
 var output;  // Type Output 
-    var dm = 'https://watch-free.tv/fetch/';
+
+var dm = 'https://watch-free.tv/fetch/';
     var token = window._token;
     var id = document.querySelector('#video_key').value;
     var reqApi = `${dm}${id}?_token=${token}`;
@@ -152,7 +153,7 @@ var output;  // Type Output
         var linksub = t.match(/https.*(vtt)/gm)[0];
         var lang = t.split(']')[0].replace('[','');
         var subs = new Subtitles(new ModuleRequest(linksub,'get',emptyKeyValue,null),lang)
-}
+        }
 
 
 // output = new Output(new Videos([new NeedsResolver('',new ModuleRequest(urlm3u,'GET',emptyKeyValue,null))],
@@ -190,7 +191,7 @@ output = new Output(undefined,[
 output = new Output(undefined,undefined,new Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only"))
 */
 
-var chaptersObject = new Chapters( new ModuleRequest( '', '', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false ,true ), output);
+var chaptersObject = new Chapters( new ModuleRequest( '', '', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false , true ), output);
 var finalJson = JSON.stringify( chaptersObject );
 savedData.innerHTML = finalJson;
   
