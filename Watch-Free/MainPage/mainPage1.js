@@ -285,8 +285,10 @@ var savedData = document.getElementById( 'ketsu-final-data' );
 var parsedJson = JSON.parse( savedData.innerHTML );
 let emptyKeyValue = [ new KeyValue( '', '' ) ];
 let output = [ ]; // Array of Output Objects
+let dm = 'https://watch-free.tv';
 let donnes = [];
 let tradMove = [];
+let tradShow = [];
 let don = document.querySelectorAll('.carousel-inner .carousel-item ');
 for (d of don){
         let image = d.querySelector('.slide.media.media-slide').style.backgroundImage.match(/https.*(jpg|png|jpeg)/gm)[0];
@@ -294,7 +296,8 @@ for (d of don){
         let title = d.querySelector('.title').textContent.trim();
         let type = d.querySelector('.category').textContent.trim();
         let descri = d.querySelector('.depion').textContent.trim();
-        let link = ' ' ;
+        let sr =d.querySelector('a').href ;
+        let link = `${dm}${sr}`;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
         donnes.push(new Data(image, descri, '',title,type,'','',false,link));
 }
@@ -305,11 +308,22 @@ for (i of ok){
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         let title  = i.querySelector('.list-title').textContent.trim();
         let date = i.querySelector('.list-year').textContent.trim();
-        let link = i.querySelector('a').href;
+        let sa = i.querySelector('a').href;
+        let link = `${dm}${sa}`;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
         tradMove.push(new Data(image, title, '',date,'','','',false,link));
 }
-
+let ts = document.querySelectorAll('.app-section.mb-3.pt-2 .list-item');
+for (i of ts){
+        let image = i.querySelector('.media.media-cover').style.backgroundImage.match(/https.*(jpg|png|jpeg)/gm)[0];
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        let title  = i.querySelector('.list-title').textContent.trim();
+        let date = i.querySelector('.list-year').textContent.trim();
+        let se = i.querySelector('a').href;
+        let link = `${dm}${se}`;
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        tradShow.push(new Data(image, title, '',date,'','','',false,link));
+}
  
 /*
 // Sample Output array, if you uncomment this code and execute you will see the result on the KETSU app.
@@ -338,6 +352,7 @@ let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(430, 105
 
 output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading,new Section('', true), layout, donnes));
 output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Movies', true), null, tradMove));
+output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Shows', true), null, tradShow));
 let mainPageObject = new MainPage( new ModuleRequest( '', 'get', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false), output );
 var finalJson = JSON.stringify( mainPageObject );
 savedData.innerHTML = finalJson;
