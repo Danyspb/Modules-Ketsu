@@ -1,7 +1,13 @@
- 
+  
 
 // SCROLL TO LINE 123 TO START CODING.
 
+function getFile(url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', url, false);
+        xhr.send();
+        return xhr.responseText;
+    }
 
 /**
  * @param {ModuleRequest} request
@@ -119,14 +125,6 @@ function Text ( text ) {
         this.text = text;
 }
 
- function getFile(url) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('get', url, false);
-        xhr.send();
-        return xhr.responseText;
-    }
-
-
 /*
 CODE STARTS HERE: 
 
@@ -140,7 +138,7 @@ var parsedJson = JSON.parse( savedData.innerHTML );
 var emptyKeyValue = [ new KeyValue( '', '' ) ];
 let emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );
 
-var output;  // Type Output
+var output;  // Type Output 
 var rawVidSub = [];
 var dm = 'https://watch-free.tv/fetch/';
     var token = window._token;
@@ -148,15 +146,17 @@ var dm = 'https://watch-free.tv/fetch/';
     var reqApi = `${dm}${id}?_token=${token}`;
     var content = getFile(reqApi);
     var dons = JSON.parse(content);
-    console.log(reqApi);
-    var url  = dons.source;
+    var urlm3u  = dons.source;
     var  trak = dons.tracks;
-     var souTitrage = t.map(g=>g.match(/https.*(vtt)/gm)[0]);
-     var language = t.map(g=>g.split(']')[0].replace('[',''))
-   var video = new Video('default', new ModuleRequest(link , 'get', emptyKeyValue, null));
- rawVidSub.push(new RawVideo([video]));
+    for(i = 0; i < trak.length; i++){
+        var t = trak[i];
+        var linksub = t.match(/https.*(vtt)/gm)[0];
+        var lang = t.split(']')[0].replace('[','');
+        var subs = new Subtitles(new ModuleRequest(linksub,'get',emptyKeyValue,null),lang)
+        }
 
-       
+    output = new RawVideo([ new Video('default',new ModuleRequest(urlm3u,'get',emptyKeyValue,null))],subs);
+console.log(output);
 
 //This examples of code shows you how to fill the output variable depending on the type of module you are making (Video, Image or Text), if you uncomment any of this code and execute it you will see the result on the module creator of KETSU.
 
@@ -184,7 +184,7 @@ output = new Output(undefined,[
 output = new Output(undefined,undefined,new Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only"))
 */
 
-var chaptersObject = new Chapters('', emptyExtra, new JavascriptConfig(true, false, ''), new Output(new Videos(rawVidSub, null), null, null));
-var finalJson = JSON.stringify(chaptersObject);
+var chaptersObject = new Chapters( new ModuleRequest( '', '', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, true ), output);
+var finalJson = JSON.stringify( chaptersObject );
 savedData.innerHTML = finalJson;
- 
+  
