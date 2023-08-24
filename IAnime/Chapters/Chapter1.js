@@ -73,6 +73,7 @@ var extraInfo = [new KeyValue('count', '1')];
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url), new KeyValue('Content-Type', 'application/x-www-form-urlencoded')];
+
 var urlencoded = new URLSearchParams();
 urlencoded.append('submit.x', '0');
 urlencoded.append('submit.y', '0');
