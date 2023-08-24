@@ -73,32 +73,43 @@ var extraInfo = [new KeyValue('count', '1')];
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url), new KeyValue('Content-Type', 'application/x-www-form-urlencoded')];
-
 var urlencoded = new URLSearchParams();
-urlencoded.append('submit.x', '0');
-urlencoded.append('submit.y', '0');
-var divservers = document.querySelectorAll('#content > div > div.post-wrapper > center:nth-child(1) > div');
-for (var x = 1; x < divservers.length; x++) {
-    var server = divservers[x];
-    if (server.className == 'spoiler' || server.className == 'spoil' || server.className == 'comic info') {
-        continue;
-    }
-    var scripts = server.querySelector('p[type=\"text/javap\"]');
-    if (scripts.innerHTML.includes('unescape')) {
-        var test = scripts.innerHTML.replace('document.write(', '').replace(/\\);$/gm, '');
-        var html = eval(test);
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, 'text/html');
-        var link = doc.querySelector('iframe').src;
-    }
-    if (x == 1) {
-        var nextRequest = link
+var info = document.querySelectorAll('.post-wrapper center div[style]');
+for (let i = 0; i < info.length-1; i++) {
+    var ok = info[i]
+    var servname  = ok.querySelector('td:nth-child(3) center font:nth-child(2)').textContent;
+    var lienencode = ok.querySelector('.box:nth-child(1) p').textContent.match(/".*(")/gm)[0].replaceAll('"','');
+    var doc = decodeURIComponent(lienencode);
+    var  link = doc.match(/https.*webkit/gm)[0].replace("' webkit","")
+     if (i  == 1) {
+        var nextRequest = link;
     } else {
-        extraInfo.push(new KeyValue(`${x}`, `${link}`));
+        extraInfo.push(new KeyValue(`${i}`, `${link}`));
     }
     console.log(link);
+// }
+
+
+// urlencoded.append('submit.x', '0');
+// urlencoded.append('submit.y', '0');
+// var divservers = document.querySelectorAll('#content > div > div.post-wrapper > center:nth-child(1) > div');
+// for (var x = 1; x < divservers.length; x++) {
+//     var server = divservers[x];
+//     if (server.className == 'spoiler' || server.className == 'spoil' || server.className == 'comic info') {
+//         continue;
+//     }
+//     var scripts = server.querySelector('p[type=\"text/javap\"]');
+//     if (scripts.innerHTML.includes('unescape')) {
+//         var lienencode = server.querySelector('.box:nth-child(1) p').textContent.match(/".*(")/gm)[0].replaceAll('"','');
+//         var doc = decodeURIComponent(lienencode);
+//         var  link = doc.match(/https.*webkit/gm)[0].replace("' webkit","")
+//     }
+//     if (x == 1) {
+//         var nextRequest = link
+//     }
+//     console.log(link);
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
-var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'post', emptyKeyValue, urlencoded.toString()), emptyExtra, new JavascriptConfig(true, false, ''), new Output(new Videos(output, null), null, null));
+var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'post', emptyKeyValue,urlencoded.toString()), emptyExtra, new JavascriptConfig(true, false, ''), new Output(new Videos(output, null), null, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;
