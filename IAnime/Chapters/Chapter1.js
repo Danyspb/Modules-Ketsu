@@ -90,6 +90,7 @@ for (let i = 0; i < info.length-1; i++) {
 // }
 
 
+
 // urlencoded.append('submit.x', '0');
 // urlencoded.append('submit.y', '0');
 // var divservers = document.querySelectorAll('#content > div > div.post-wrapper > center:nth-child(1) > div');
